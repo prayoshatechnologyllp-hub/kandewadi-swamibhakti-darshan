@@ -9,6 +9,7 @@ import plaqueFounder from "@/assets/plaque-founder-1898.png";
 import glimpseSacredDarshan from "@/assets/glimpse-sacred-darshan.jpg";
 import glimpseFestivalDecorations from "@/assets/glimpse-festival-decorations.jpg";
 import glimpseDevotionLight from "@/assets/glimpse-devotion-light.jpg";
+import swamiPortrait from "@/assets/swami-portrait-cutout.png";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 const upcomingUtsavs = [
@@ -318,15 +319,82 @@ function Index() {
         </div>
       </section>
 
-      <section className="mt-20 bg-banner py-16 text-center">
-        <p className="text-gold uppercase tracking-widest text-xs font-semibold">॥ श्री स्वामी समर्थ ॥</p>
-        <h2 className="mt-2 font-display text-3xl text-gold-foreground md:text-4xl">An Appeal to Devotees</h2>
-        <p className="mx-auto mt-3 max-w-2xl px-4 text-gold-foreground/90 text-sm leading-relaxed">
-          We humbly appeal to all devotees across the world to contribute generously towards the sacred sanctum restoration, daily Annadan Mahaprasad, and humanitarian projects undertaken by the Math.
-        </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <Link to="/appeal" className="btn-outline-gold">View Projects</Link>
-          <Link to="/seva/donation" className="btn-saffron">Donate Online</Link>
+      {/* Sacred Appeal Card */}
+      <section className="mx-auto my-20 max-w-6xl px-4">
+        <div className="relative overflow-hidden rounded-xl border-2 border-gold/60 bg-gradient-to-br from-maroon via-maroon to-maroon p-8 md:p-12 text-cream shadow-2xl">
+          {/* Subtle background glow elements */}
+          <div className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-16 -left-16 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
+
+          <div className="relative grid items-center gap-8 md:grid-cols-12">
+            {/* Swami Visual & Sacred Quote */}
+            <div className="flex flex-col items-center text-center md:col-span-4 md:border-r md:border-gold/30 md:pr-8">
+              <div className="relative mb-4 flex h-36 w-36 sm:h-44 sm:w-44 items-center justify-center rounded-full border-2 border-gold/70 bg-gradient-to-b from-amber-50 via-orange-50 to-amber-100 p-2 shadow-temple">
+                <img
+                  src={swamiPortrait}
+                  alt="Shree Swami Samarth Maharaj"
+                  className="h-full w-full object-contain filter drop-shadow-md"
+                />
+              </div>
+              <p className="font-display text-lg font-bold text-gold">॥ भिऊ नकोस, मी तुझ्या पाठीशी आहे ॥</p>
+              <p className="mt-1 text-xs text-cream/80 italic">"Fear not, I am always behind you."</p>
+            </div>
+
+            {/* Content & Action */}
+            <div className="space-y-5 md:col-span-8 md:pl-4">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="h-[1.5px] w-6 bg-gold" />
+                  <span className="text-xs font-semibold tracking-widest text-gold uppercase">SUPPORT THE SACRED WORK</span>
+                </div>
+                <h2 className="mt-2 font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-foreground">
+                  An Appeal to Devotees
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-cream/90">
+                  We humbly appeal to all devotees across the globe to contribute generously towards the ongoing sacred causes and seva of Kandewadi Math. Your selfless contribution helps sustain centuries of unbroken Vedic rituals, daily Annadan for pilgrims, and charitable welfare for the needy.
+                </p>
+              </div>
+
+              {/* Cause Badges */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                <div className="rounded-md border border-gold/30 bg-black/20 p-3 text-center sm:text-left">
+                  <span className="text-base">🍲</span>
+                  <p className="mt-1 font-display text-xs font-bold text-gold">Nitya Annadan Seva</p>
+                  <p className="text-[11px] text-cream/70">Feeding 500+ pilgrims daily</p>
+                </div>
+                <div className="rounded-md border border-gold/30 bg-black/20 p-3 text-center sm:text-left">
+                  <span className="text-base">🏛️</span>
+                  <p className="mt-1 font-display text-xs font-bold text-gold">Sanctum Restoration</p>
+                  <p className="text-[11px] text-cream/70">Preserving our 1898 sacred vastu</p>
+                </div>
+                <div className="rounded-md border border-gold/30 bg-black/20 p-3 text-center sm:text-left">
+                  <span className="text-base">🩺</span>
+                  <p className="mt-1 font-display text-xs font-bold text-gold">Charity & Health Camps</p>
+                  <p className="text-[11px] text-cream/70">Free clinics & educational aid</p>
+                </div>
+              </div>
+
+              {/* Buttons & Trust guarantee */}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Link
+                  to="/seva/$slug"
+                  params={{ slug: "donation" }}
+                  className="inline-flex items-center gap-2 rounded-sm bg-gradient-saffron px-6 py-3 font-display text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-temple transition duration-200 hover:brightness-110"
+                >
+                  Donate Online Now
+                </Link>
+                <Link
+                  to="/appeal"
+                  className="inline-flex items-center gap-2 rounded-sm border-2 border-gold px-6 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-gold transition duration-200 hover:bg-gold hover:text-maroon"
+                >
+                  View Ongoing Projects
+                </Link>
+                <span className="text-[11px] text-cream/75 flex items-center gap-1.5 w-full sm:w-auto">
+                  <span className="text-gold font-bold">✓</span> Official Trust Receipts Issued
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </SiteLayout>

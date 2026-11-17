@@ -61,8 +61,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           </ul>
         </nav>
       </header>
-      <main>{children}</main>
-      <footer className="mt-16 bg-maroon text-gold-foreground">
+      <main className="pb-16">{children}</main>
+      <footer className="border-t-4 border-gold bg-maroon text-gold-foreground">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-3">
