@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppealRouteImport } from './routes/appeal'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EdarshanRouteImport } from './routes/edarshan'
+import { Route as StructureRouteImport } from './routes/structure'
 import { Route as AboutSlugRouteImport } from './routes/about.$slug'
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as LegalSlugRouteImport } from './routes/legal.$slug'
@@ -37,6 +38,11 @@ const ContactRoute = ContactRouteImport.update({
 const EdarshanRoute = EdarshanRouteImport.update({
   id: '/edarshan',
   path: '/edarshan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StructureRoute = StructureRouteImport.update({
+  id: '/structure',
+  path: '/structure',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutSlugRoute = AboutSlugRouteImport.update({
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/appeal': typeof AppealRoute
   '/contact': typeof ContactRoute
   '/edarshan': typeof EdarshanRoute
+  '/structure': typeof StructureRoute
   '/about/$slug': typeof AboutSlugRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/legal/$slug': typeof LegalSlugRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/appeal': typeof AppealRoute
   '/contact': typeof ContactRoute
   '/edarshan': typeof EdarshanRoute
+  '/structure': typeof StructureRoute
   '/about/$slug': typeof AboutSlugRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/legal/$slug': typeof LegalSlugRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/appeal': typeof AppealRoute
   '/contact': typeof ContactRoute
   '/edarshan': typeof EdarshanRoute
+  '/structure': typeof StructureRoute
   '/about/$slug': typeof AboutSlugRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/legal/$slug': typeof LegalSlugRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/appeal'
     | '/contact'
     | '/edarshan'
+    | '/structure'
     | '/about/$slug'
     | '/gallery/$slug'
     | '/legal/$slug'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/appeal'
     | '/contact'
     | '/edarshan'
+    | '/structure'
     | '/about/$slug'
     | '/gallery/$slug'
     | '/legal/$slug'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/appeal'
     | '/contact'
     | '/edarshan'
+    | '/structure'
     | '/about/$slug'
     | '/gallery/$slug'
     | '/legal/$slug'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   AppealRoute: typeof AppealRoute
   ContactRoute: typeof ContactRoute
   EdarshanRoute: typeof EdarshanRoute
+  StructureRoute: typeof StructureRoute
   AboutSlugRoute: typeof AboutSlugRoute
   GallerySlugRoute: typeof GallerySlugRoute
   LegalSlugRoute: typeof LegalSlugRoute
@@ -175,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/edarshan'
       fullPath: '/edarshan'
       preLoaderRoute: typeof EdarshanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/structure': {
+      id: '/structure'
+      path: '/structure'
+      fullPath: '/structure'
+      preLoaderRoute: typeof StructureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about/$slug': {
@@ -220,6 +240,7 @@ const rootRouteChildren: RootRouteChildren = {
   AppealRoute: AppealRoute,
   ContactRoute: ContactRoute,
   EdarshanRoute: EdarshanRoute,
+  StructureRoute: StructureRoute,
   AboutSlugRoute: AboutSlugRoute,
   GallerySlugRoute: GallerySlugRoute,
   LegalSlugRoute: LegalSlugRoute,

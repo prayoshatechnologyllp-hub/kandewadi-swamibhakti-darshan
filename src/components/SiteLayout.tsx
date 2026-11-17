@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { sections, type SectionKey } from "@/lib/site";
+import swamiLogo from "@/assets/swami-portrait-cutout.png";
 
 const prefix: Record<SectionKey, string> = { about: "/about", seva: "/seva", utsav: "/utsav", gallery: "/gallery", legal: "/legal" };
 
@@ -27,12 +28,22 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <div className="bg-maroon py-1.5 text-center text-xs tracking-widest text-gold-foreground">॥ श्री स्वामी समर्थ ॥ &nbsp; Bhiu Nakos, Mi Tujhya Pathishi Aahe</div>
       <header className="border-b-4 border-gold bg-card">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
-          <Link to="/" className="flex items-center gap-3">
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-saffron font-display text-2xl text-primary-foreground shadow-temple">ॐ</span>
-            <span>
-              <span className="block font-display text-lg font-bold text-maroon md:text-2xl">Shree Swami Samarth Maharaj Math</span>
-              <span className="block text-sm text-muted-foreground">Kandewadi, Girgaum, Mumbai</span>
-            </span>
+          <Link to="/" className="flex items-center gap-3.5 group">
+            <div className="relative flex h-14 w-14 sm:h-16 sm:w-16 flex-shrink-0 items-center justify-center rounded-full border-2 border-gold bg-gradient-to-b from-amber-50 via-orange-50 to-amber-100 p-1 shadow-temple transition duration-300 group-hover:scale-105 group-hover:border-gold-light">
+              <img
+                src={swamiLogo}
+                alt="Shree Swami Samarth Maharaj"
+                className="h-full w-full object-contain filter drop-shadow-sm"
+              />
+            </div>
+            <div>
+              <span className="block font-display text-lg font-bold text-maroon sm:text-2xl leading-tight transition duration-200 group-hover:text-primary">
+                Shree Swami Samarth Maharaj Math
+              </span>
+              <span className="block text-xs sm:text-sm text-muted-foreground">
+                Kandewadi, Girgaum, Mumbai • <span className="text-gold font-medium">Estd. 1898</span>
+              </span>
+            </div>
           </Link>
           <a href="/seva/donation" className="btn-saffron hidden md:inline-flex">Donate Now</a>
           <button className="md:hidden text-2xl text-maroon" onClick={() => setOpen(!open)} aria-label="Menu">☰</button>
@@ -54,16 +65,22 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <footer className="mt-16 bg-maroon text-gold-foreground">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 md:grid-cols-3">
           <div>
-            <h3 className="font-display text-xl text-gold">Shree Swami Samarth Math</h3>
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-gold/60 bg-cream/10 p-1">
+                <img src={swamiLogo} alt="Shree Swami Samarth Math" className="h-full w-full object-contain" />
+              </div>
+              <h3 className="font-display text-xl text-gold">Shree Swami Samarth Math</h3>
+            </div>
             <p className="mt-3 text-sm opacity-80">Kandewadi, Girgaum, Mumbai – 400004, Maharashtra, India.<br />Phone: +91 00000 00000<br />Email: info@yourdomain.com</p>
           </div>
           <div>
             <h3 className="font-display text-xl text-gold">Quick Links</h3>
             <ul className="mt-3 space-y-1 text-sm opacity-80">
-              <li><a href="/about/history">History of Math</a></li>
-              <li><a href="/edarshan">eDarshan</a></li>
-              <li><a href="/seva/donation">Donation</a></li>
-              <li><a href="/utsav/calendar">Utsav Calendar</a></li>
+              <li><Link to="/about/history">History of Math</Link></li>
+              <li><Link to="/edarshan">eDarshan (Live Aarti)</Link></li>
+              <li><Link to="/seva/donation">Online Seva & Donation</Link></li>
+              <li><Link to="/utsav/calendar">Utsav Calendar</Link></li>
+              <li><Link to="/structure" className="text-gold font-semibold">Proposed Link Structure</Link></li>
             </ul>
           </div>
           <div>
