@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppealRouteImport } from './routes/appeal'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EdarshanRouteImport } from './routes/edarshan'
+import { Route as AboutSlugRouteImport } from './routes/about.$slug'
+import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
+import { Route as LegalSlugRouteImport } from './routes/legal.$slug'
+import { Route as SevaSlugRouteImport } from './routes/seva.$slug'
+import { Route as UtsavSlugRouteImport } from './routes/utsav.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppealRoute = AppealRouteImport.update({
+  id: '/appeal',
+  path: '/appeal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EdarshanRoute = EdarshanRouteImport.update({
+  id: '/edarshan',
+  path: '/edarshan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutSlugRoute = AboutSlugRouteImport.update({
+  id: '/about/$slug',
+  path: '/about/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GallerySlugRoute = GallerySlugRouteImport.update({
+  id: '/gallery/$slug',
+  path: '/gallery/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalSlugRoute = LegalSlugRouteImport.update({
+  id: '/legal/$slug',
+  path: '/legal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SevaSlugRoute = SevaSlugRouteImport.update({
+  id: '/seva/$slug',
+  path: '/seva/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UtsavSlugRoute = UtsavSlugRouteImport.update({
+  id: '/utsav/$slug',
+  path: '/utsav/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/appeal': typeof AppealRoute
+  '/contact': typeof ContactRoute
+  '/edarshan': typeof EdarshanRoute
+  '/about/$slug': typeof AboutSlugRoute
+  '/gallery/$slug': typeof GallerySlugRoute
+  '/legal/$slug': typeof LegalSlugRoute
+  '/seva/$slug': typeof SevaSlugRoute
+  '/utsav/$slug': typeof UtsavSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/appeal': typeof AppealRoute
+  '/contact': typeof ContactRoute
+  '/edarshan': typeof EdarshanRoute
+  '/about/$slug': typeof AboutSlugRoute
+  '/gallery/$slug': typeof GallerySlugRoute
+  '/legal/$slug': typeof LegalSlugRoute
+  '/seva/$slug': typeof SevaSlugRoute
+  '/utsav/$slug': typeof UtsavSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/appeal': typeof AppealRoute
+  '/contact': typeof ContactRoute
+  '/edarshan': typeof EdarshanRoute
+  '/about/$slug': typeof AboutSlugRoute
+  '/gallery/$slug': typeof GallerySlugRoute
+  '/legal/$slug': typeof LegalSlugRoute
+  '/seva/$slug': typeof SevaSlugRoute
+  '/utsav/$slug': typeof UtsavSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/appeal'
+    | '/contact'
+    | '/edarshan'
+    | '/about/$slug'
+    | '/gallery/$slug'
+    | '/legal/$slug'
+    | '/seva/$slug'
+    | '/utsav/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/appeal'
+    | '/contact'
+    | '/edarshan'
+    | '/about/$slug'
+    | '/gallery/$slug'
+    | '/legal/$slug'
+    | '/seva/$slug'
+    | '/utsav/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/appeal'
+    | '/contact'
+    | '/edarshan'
+    | '/about/$slug'
+    | '/gallery/$slug'
+    | '/legal/$slug'
+    | '/seva/$slug'
+    | '/utsav/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppealRoute: typeof AppealRoute
+  ContactRoute: typeof ContactRoute
+  EdarshanRoute: typeof EdarshanRoute
+  AboutSlugRoute: typeof AboutSlugRoute
+  GallerySlugRoute: typeof GallerySlugRoute
+  LegalSlugRoute: typeof LegalSlugRoute
+  SevaSlugRoute: typeof SevaSlugRoute
+  UtsavSlugRoute: typeof UtsavSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/appeal': {
+      id: '/appeal'
+      path: '/appeal'
+      fullPath: '/appeal'
+      preLoaderRoute: typeof AppealRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/edarshan': {
+      id: '/edarshan'
+      path: '/edarshan'
+      fullPath: '/edarshan'
+      preLoaderRoute: typeof EdarshanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/$slug': {
+      id: '/about/$slug'
+      path: '/about/$slug'
+      fullPath: '/about/$slug'
+      preLoaderRoute: typeof AboutSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery/$slug': {
+      id: '/gallery/$slug'
+      path: '/gallery/$slug'
+      fullPath: '/gallery/$slug'
+      preLoaderRoute: typeof GallerySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/$slug': {
+      id: '/legal/$slug'
+      path: '/legal/$slug'
+      fullPath: '/legal/$slug'
+      preLoaderRoute: typeof LegalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seva/$slug': {
+      id: '/seva/$slug'
+      path: '/seva/$slug'
+      fullPath: '/seva/$slug'
+      preLoaderRoute: typeof SevaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/utsav/$slug': {
+      id: '/utsav/$slug'
+      path: '/utsav/$slug'
+      fullPath: '/utsav/$slug'
+      preLoaderRoute: typeof UtsavSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppealRoute: AppealRoute,
+  ContactRoute: ContactRoute,
+  EdarshanRoute: EdarshanRoute,
+  AboutSlugRoute: AboutSlugRoute,
+  GallerySlugRoute: GallerySlugRoute,
+  LegalSlugRoute: LegalSlugRoute,
+  SevaSlugRoute: SevaSlugRoute,
+  UtsavSlugRoute: UtsavSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
