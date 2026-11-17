@@ -2,6 +2,24 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import hero from "@/assets/hero-temple.jpg";
 import utsav from "@/assets/utsav.jpg";
+import aarti from "@/assets/aarti.jpg";
+import bhajan from "@/assets/bhajan.jpg";
+import annadan from "@/assets/annadan.jpg";
+import founder from "@/assets/founder.jpg";
+
+const eventsGallery = [
+  { img: utsav, t: "Palkhi Sohala", d: "Prakat Din Utsav" },
+  { img: aarti, t: "Maha Aarti", d: "Gurupournima" },
+  { img: bhajan, t: "Bhajan Sandhya", d: "Every Thursday" },
+  { img: annadan, t: "Annadan Seva", d: "Punyatithi Utsav" },
+  { img: hero, t: "Gabhara Darshan", d: "Daily" },
+  { img: aarti, t: "Deepotsav", d: "Diwali" },
+];
+const videos = [
+  { img: aarti, t: "Kakad Aarti – Live", d: "Daily 6:00 AM" },
+  { img: utsav, t: "Prakat Din Palkhi 2026", d: "Utsav highlights" },
+  { img: bhajan, t: "Tarak Mantra Bhajan", d: "Devotional" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -53,6 +71,54 @@ function Index() {
           <a href="/about/history" className="btn-saffron mt-6">Read History</a>
         </div>
         <img src={utsav} alt="Utsav procession" loading="lazy" width={1200} height={800} className="rounded-md border-8 border-card shadow-temple" />
+      </section>
+
+      <section className="mx-auto mt-20 grid max-w-6xl gap-6 px-4 text-center sm:grid-cols-4">
+        {[["75+","Years of Seva"],["20+","Utsavs a Year"],["1 Lakh+","Devotees"],["365","Days Annadan"]].map(([n,l]) => (
+          <div key={l} className="rounded-md bg-secondary p-6"><div className="font-display text-4xl font-bold text-primary">{n}</div><div className="mt-1 text-sm text-maroon">{l}</div></div>
+        ))}
+      </section>
+
+      <section className="mx-auto mt-20 max-w-6xl px-4">
+        <div className="text-center"><p className="text-primary">॥ उत्सव ॥</p><h2 className="font-display text-3xl text-maroon md:text-4xl">Event Gallery</h2><div className="divider mx-auto mt-3" /></div>
+        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3">
+          {eventsGallery.map((e, i) => (
+            <a key={i} href="/gallery/utsav-photos" className={`group relative overflow-hidden rounded-md shadow-temple ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}>
+              <img src={e.img} alt={e.t} loading="lazy" width={1200} height={800} className="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-hero-overlay opacity-80" />
+              <div className="absolute bottom-0 p-4 text-left"><h3 className="font-display text-lg text-gold-foreground">{e.t}</h3><p className="text-xs text-gold">{e.d}</p></div>
+            </a>
+          ))}
+        </div>
+        <div className="mt-8 text-center"><a href="/gallery/utsav-photos" className="btn-saffron">View Full Gallery</a></div>
+      </section>
+
+      <section className="mt-20 bg-banner py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center"><h2 className="font-display text-3xl text-gold-foreground md:text-4xl">Darshan Videos</h2><div className="divider mx-auto mt-3" /></div>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {videos.map((v) => (
+              <a key={v.t} href="/edarshan" className="group overflow-hidden rounded-md bg-card shadow-temple">
+                <div className="relative aspect-video">
+                  <img src={v.img} alt={v.t} loading="lazy" width={1200} height={800} className="h-full w-full object-cover" />
+                  <span className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-saffron text-2xl text-primary-foreground shadow-temple transition group-hover:scale-110">▶</span>
+                </div>
+                <div className="p-4"><h3 className="font-display text-lg text-maroon">{v.t}</h3><p className="text-sm text-muted-foreground">{v.d}</p></div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto mt-20 grid max-w-5xl items-center gap-10 px-4 md:grid-cols-[280px_1fr]">
+        <img src={founder} alt="Founder of the Math" loading="lazy" width={800} height={1008} className="rounded-md border-8 border-card shadow-temple" />
+        <div>
+          <p className="text-primary">Our Founder</p>
+          <h2 className="font-display text-3xl text-maroon">A Life of Devotion</h2>
+          <div className="divider mt-3" />
+          <p className="mt-5 leading-relaxed text-foreground/85">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+          <a href="/about/founder" className="btn-saffron mt-6">Know More</a>
+        </div>
       </section>
 
       <section className="mt-20 bg-banner py-16 text-center">
