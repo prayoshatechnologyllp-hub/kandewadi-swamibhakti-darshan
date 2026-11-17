@@ -1,0 +1,10 @@
+node_modules
+.output
+.vinxi
+.tanstack
+dist
+dist-ssr
+npm-debug.log*
+.git
+.vscode
+.idea
