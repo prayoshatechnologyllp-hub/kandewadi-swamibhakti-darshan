@@ -1,5 +1,6 @@
 import hero from "@/assets/hero-temple.jpg";
 import utsav from "@/assets/utsav.jpg";
+import founder from "@/assets/founder.jpg";
 
 const events = [
   ["Shree Swami Samarth Prakat Din", "Chaitra Shuddha Dwitiya"],
@@ -10,6 +11,18 @@ const events = [
 ];
 
 export function SectionExtra({ section, slug }: { section: string; slug: string }) {
+  if (slug === "founder") {
+    return (
+      <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 md:grid-cols-[320px_1fr]">
+        <figure className="text-center">
+          <img src={founder} alt="Founder of the Math" loading="lazy" width={800} height={1008} className="w-full rounded-md border-8 border-card shadow-temple" />
+          <figcaption className="mt-3 font-display text-lg text-maroon">Founder (name placeholder)</figcaption>
+          <p className="text-sm text-muted-foreground">1900 – 1975</p>
+        </figure>
+        <blockquote className="rounded-md border-l-4 border-gold bg-card p-6 font-display text-xl italic text-maroon shadow-temple">"Lorem ipsum dolor sit amet — serve every devotee as you would serve Shree Swami Samarth himself."</blockquote>
+      </div>
+    );
+  }
   if (section === "gallery" || slug === "photos") {
     return (
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 md:grid-cols-4">
