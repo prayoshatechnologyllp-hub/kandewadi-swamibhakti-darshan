@@ -6,6 +6,7 @@ import aarti from "@/assets/aarti.jpg";
 import bhajan from "@/assets/bhajan.jpg";
 import annadan from "@/assets/annadan.jpg";
 import founder from "@/assets/founder.jpg";
+import { MemberGrid, members } from "@/components/Members";
 
 const eventsGallery = [
   { img: utsav, t: "Palkhi Sohala", d: "Prakat Din Utsav" },
@@ -120,6 +121,8 @@ function Index() {
           <a href="/about/founder" className="btn-saffron mt-6">Know More</a>
         </div>
       </section>
+
+      <MemberGrid title="Our Founding Members" list={members} />
 
       <section className="mt-20 bg-banner py-16 text-center">
         <h2 className="font-display text-3xl text-gold-foreground">An Appeal to Devotees</h2>
