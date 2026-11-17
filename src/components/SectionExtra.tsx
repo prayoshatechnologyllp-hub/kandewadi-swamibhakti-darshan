@@ -1,6 +1,7 @@
 import hero from "@/assets/hero-temple.jpg";
 import utsav from "@/assets/utsav.jpg";
 import founder from "@/assets/founder.jpg";
+import { MemberGrid, members, trustees } from "@/components/Members";
 
 const events = [
   ["Shree Swami Samarth Prakat Din", "Chaitra Shuddha Dwitiya"],
@@ -13,6 +14,7 @@ const events = [
 export function SectionExtra({ section, slug }: { section: string; slug: string }) {
   if (slug === "founder") {
     return (
+      <>
       <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 md:grid-cols-[320px_1fr]">
         <figure className="text-center">
           <img src={founder} alt="Founder of the Math" loading="lazy" width={800} height={1008} className="w-full rounded-md border-8 border-card shadow-temple" />
@@ -21,8 +23,11 @@ export function SectionExtra({ section, slug }: { section: string; slug: string 
         </figure>
         <blockquote className="rounded-md border-l-4 border-gold bg-card p-6 font-display text-xl italic text-maroon shadow-temple">"Lorem ipsum dolor sit amet — serve every devotee as you would serve Shree Swami Samarth himself."</blockquote>
       </div>
+      <MemberGrid title="Founding Members" list={members} />
+      </>
     );
   }
+  if (slug === "trustees") return <MemberGrid title="Board of Trustees" list={trustees} />;
   if (section === "gallery" || slug === "photos") {
     return (
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 md:grid-cols-4">
