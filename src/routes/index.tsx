@@ -29,7 +29,7 @@ function Index() {
         <img src={hero} alt="Shree Swami Samarth Maharaj shrine" width={1600} height={912} className="h-[70vh] w-full object-cover" />
         <div className="absolute inset-0 bg-hero-overlay" />
         <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 text-center">
-          <p className="font-display text-gold tracking-[0.3em]">॥ श्री स्वामी समर्थ ॥</p>
+          <p className="text-lg text-gold">॥ श्री स्वामी समर्थ ॥</p>
           <h1 className="mt-2 max-w-3xl px-4 font-display text-4xl font-bold text-gold-foreground md:text-6xl">Shree Swami Samarth Maharaj Math</h1>
           <p className="mt-3 text-gold-foreground/90">Kandewadi, Girgaum, Mumbai</p>
           <div className="mt-6 flex gap-3"><Link to="/edarshan" className="btn-saffron">Live Darshan</Link><a href="/seva/donation" className="btn-outline-gold">Donate</a></div>
