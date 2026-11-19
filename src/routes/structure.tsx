@@ -16,33 +16,38 @@ const structureData = [
   {
     category: "Home",
     url: "/",
-    description: "Main landing portal with temple hero, daily aarti timings, sacred celebrations, divine moments, videos, founder tribute, and appeal.",
+    description: "Main landing portal with temple hero, daily aarti timings, sacred celebrations, divine moments, videos, and founder tribute.",
     children: [],
   },
   {
     category: "About Math",
-    description: "History, founding lineage, trustees, community seva, and temple guidelines.",
+    description: "History, founding lineage, trustees, community seva, and temple decorum.",
     children: [
-      { title: "History of Math", url: "/about/history", desc: "Chronicles of the Math since 1920s and the consecration of holy padukas." },
-      { title: "About Math Founder", url: "/about/founder", desc: "Spiritual life, austerities, and visionary leadership of the founder." },
-      { title: "Trustees", url: "/about/trustees", desc: "Board of Trustees governing religious and administrative operations." },
-      { title: "Social Activities", url: "/about/social-activities", desc: "Nitya Annadan, free medical clinics, education aid, and gau seva." },
+      { title: "History of Math", url: "/about/history", desc: "Chronicles of the Math since 1898 and the consecration of holy padukas." },
+      { title: "Founder Trustee", url: "/about/founder", desc: "Shri Rao Saheb Ganesh Ballal Mulekar who founded the Math on 8th October 1898." },
+      { title: "Present Trustees", url: "/about/trustees", desc: "Board of Trustees governing religious and administrative operations." },
+      { title: "Social Activities", url: "/about/social-activities", desc: "Nitya Annadan, free medical clinics, education aid, and disaster relief." },
+      { title: "Does & Donts", url: "/about/dos-and-donts", desc: "Sacred temple decorum, queue rules, dress code, and sanctity guidelines." },
     ],
   },
   {
-    category: "eDarshan - Darshan (Live Aarti / Functions)",
+    category: "eDarshan (Coming Soon…)",
     url: "/edarshan",
-    description: "Live webcast stream from the sanctum sanctorum (Gabhara) and live aarti broadcasts.",
+    description: "Upcoming 24x7 live webcast stream from the sanctum sanctorum (Gabhara) and live aarti broadcasts.",
     children: [],
   },
   {
     category: "Online Seva",
-    description: "Devotee registration and sacred pooja booking facilities.",
+    description: "Devotee registration, sign in, sacred pooja booking, and donation facilities.",
     children: [
       { title: "Registration", url: "/seva/registration", desc: "Register family gotra and details for official seva and prasad delivery." },
-      { title: "Donation", url: "/seva/donation", desc: "Sponsor daily aarti, Annadan, or temple renovation with 80G tax benefit." },
+      { title: "Sign In", url: "/seva/sign-in", desc: "Devotee account portal to access donation receipts and scheduled pooja records." },
+      { title: "Donation", url: "/seva/donation", desc: "Sponsor daily aarti, flowers, or general trust fund with 80G tax benefit." },
       { title: "Abhishek", url: "/seva/abhishek", desc: "Book Panchamrut or Rudra Abhishek pooja on auspicious dates." },
-      { title: "Laghurudra", url: "/seva/laghurudra", desc: "Powerful Vedic Rudrabhishek ritual performed by 11 learned priests." },
+      { title: "Laghurudra (Donation etc)", url: "/seva/laghurudra", desc: "Powerful Vedic Rudrabhishek ritual performed by 11 learned priests." },
+      { title: "Nitya Annadan Seva (Donation etc)", url: "/seva/annadan", desc: "Sponsor daily hot nutritious meals for pilgrims and sadhus." },
+      { title: "Gau Seva (Donation etc)", url: "/seva/goshala", desc: "Care, green grass fodder, and veterinary support for sacred cows." },
+      { title: "Math Jeernodhar (Donation etc)", url: "/seva/jeernodhar", desc: "Heritage temple vastu restoration, marble repair, and preservation fund." },
     ],
   },
   {
@@ -53,18 +58,19 @@ const structureData = [
     ],
   },
   {
-    category: "An Appeal",
+    category: "An Appeal (Coming Soon…)",
     url: "/appeal",
-    description: "Appeal to devotees for contributing generously for projects undertaken by the Math (Restoration, Annachhatra, Medical Clinic, Vedic Library).",
+    description: "Upcoming contribution portal for major projects undertaken by the Math (Restoration, Annachhatra, Medical Clinic, Vedic Library).",
     children: [],
   },
   {
     category: "Gallery",
-    description: "Spiritual wallpapers, photo archives of shrines, and utsav memories.",
+    description: "Festival photos, sacred videos, spiritual wallpapers, and photo archives of all shrines.",
     children: [
+      { title: "Utsav Photos", url: "/gallery/utsav-photos", desc: "Moments of devotion, Palkhi processions, and festival shringaar." },
+      { title: "Utsav Videos", url: "/gallery/utsav-videos", desc: "Video archives of Thursday Palkhi Sohala, aartis, and yajna ceremonies." },
       { title: "Swami Wallpapers", url: "/gallery/swami-wallpapers", desc: "Download high-definition digital wallpapers of Shree Swami Samarth." },
       { title: "Other Deities", url: "/gallery/other-deities", desc: "Shrines of Lord Ganesha, Lord Dattatreya, Lord Shiva, and Hanuman." },
-      { title: "Utsav Photos", url: "/gallery/utsav-photos", desc: "Moments of devotion and celebration captured throughout the years." },
     ],
   },
   {
@@ -74,7 +80,7 @@ const structureData = [
     children: [],
   },
   {
-    category: "Legal & Policies",
+    category: "Footer Menus",
     description: "Official policies and terms governing the website and donations.",
     children: [
       { title: "Terms of Use", url: "/legal/terms", desc: "Website usage terms and intellectual property rights." },

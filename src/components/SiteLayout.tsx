@@ -52,10 +52,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <ul className="mx-auto flex max-w-7xl flex-col px-4 md:flex-row md:flex-wrap md:items-center">
             <li><Link to="/" className="nav-link">Home</Link></li>
             <Dropdown k="about" />
-            <li><Link to="/edarshan" className="nav-link">eDarshan</Link></li>
+            <li><Link to="/edarshan" className="nav-link flex items-center gap-1.5">eDarshan <span className="rounded bg-black/20 px-1.5 py-0.5 text-[10px] font-bold text-cream">Soon</span></Link></li>
             <Dropdown k="seva" />
             <Dropdown k="utsav" />
-            <li><Link to="/appeal" className="nav-link">An Appeal</Link></li>
+            <li><Link to="/appeal" className="nav-link flex items-center gap-1.5">An Appeal <span className="rounded bg-black/20 px-1.5 py-0.5 text-[10px] font-bold text-cream">Soon</span></Link></li>
             <Dropdown k="gallery" />
             <li><Link to="/contact" className="nav-link">Contact Us</Link></li>
           </ul>
@@ -80,7 +80,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <li><Link to="/edarshan">eDarshan (Live Aarti)</Link></li>
               <li><Link to="/seva/donation">Online Seva & Donation</Link></li>
               <li><Link to="/utsav/calendar">Utsav Calendar</Link></li>
-              <li><Link to="/structure" className="text-gold font-semibold">Proposed Link Structure</Link></li>
+              <li><Link to="/structure" className="text-gold font-semibold">Approved Link Structure</Link></li>
             </ul>
           </div>
           <div>

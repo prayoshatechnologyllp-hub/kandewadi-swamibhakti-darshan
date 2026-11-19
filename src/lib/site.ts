@@ -15,8 +15,8 @@ export const sections = {
         ],
       },
       founder: {
-        title: "About Math Founder",
-        intro: "Shri Rao Saheb Ganesh Ballal Mulekar — the revered devotee who founded the Math on 8th October 1898.",
+        title: "Founder Trustee",
+        intro: "Shri Rao Saheb Ganesh Ballal Mulekar — the revered Founder Trustee who consecrated the holy Padukas on 8th October 1898.",
         body: [
           "Shri Rao Saheb Ganesh Ballal Mulekar was a prominent and deeply devout follower of Akkalkot Niwasi Shree Swami Samarth Maharaj. Driven by profound bhakti and the Guru's grace, he envisioned a holy sanctuary in Mumbai where devotees could gather for collective prayer and darshan.",
           "On 8th October 1898, he enshrined Swami's holy Padukas, initiating the timeless tradition of morning Kakad Aarti, evening Dhoop Aarti, and festival celebrations that have continued uninterrupted for more than a century.",
@@ -24,8 +24,8 @@ export const sections = {
         ],
       },
       trustees: {
-        title: "Trustees",
-        intro: "The dedicated Trust Board carrying forward the spiritual traditions and administrative governance.",
+        title: "Present Trustees",
+        intro: "The dedicated Board of Trustees carrying forward the spiritual traditions and administrative governance of the Math.",
         body: [
           "The administration of Shree Swami Samarth Maharaj Math, Kandewadi, is managed by an experienced Board of Trustees comprising respected elders, spiritual leaders, and professionals devoted to the service of the Math.",
           "The Trust oversees the daily operations, priest services, maintenance of the sanctum sanctorum, preservation of holy relics, and transparent management of seva donations.",
@@ -41,6 +41,14 @@ export const sections = {
           "During natural calamities and local emergencies, the Math trust provides immediate relief, ration kits, and financial aid to affected families in and around Mumbai."
         ],
       },
+      "dos-and-donts": {
+        title: "Does & Donts",
+        intro: "Guidelines, temple decorum, and code of conduct for visiting devotees and pilgrims.",
+        body: [
+          "To maintain the sanctity, spiritual vibration, and serene atmosphere of Shree Swami Samarth Maharaj Math, all visiting devotees are requested to observe these guidelines with reverence.",
+          "Please follow queue discipline, silence during live aartis, and respect the ancient traditions established over 125 years ago."
+        ],
+      },
     },
   },
   seva: {
@@ -53,6 +61,14 @@ export const sections = {
           "Devotees can register their details with the Math to easily sponsor daily aartis, book special abhishekams, and receive sanctified prasad directly by post or during their temple visits.",
           "Registration enables you to create sankalpa in your family's name and gotra, ensuring your prayers are performed according to authentic Vedic rituals.",
           "You will also receive timely updates regarding upcoming Math Utsavs, Palkhi Sohala, and auspicious tithis throughout the year."
+        ],
+      },
+      "sign-in": {
+        title: "Sign In",
+        intro: "Devotee sign-in portal to manage seva bookings, access donation receipts, and update profile details.",
+        body: [
+          "Registered devotees can sign in to view their booked sevas, check scheduled pooja dates, download official 80G tax receipts, and track prasad dispatches.",
+          "If you do not have an account yet, please register on the Registration page to create your devotee profile."
         ],
       },
       donation: {
@@ -82,6 +98,33 @@ export const sections = {
           "Devotees wishing to sponsor or participate in Laghurudra Seva can reserve dates in advance through this portal."
         ],
       },
+      annadan: {
+        title: "Nitya Annadan Seva",
+        intro: "Feed pilgrims, devotees, and the needy through the eternal tradition of temple Annachhatra.",
+        body: [
+          "In the tradition of 'Annadanam Param Daanam', the Math serves hot, sanctified vegetarian Mahaprasad daily to all pilgrims and visitors without distinction.",
+          "Devotees can sponsor full-day or half-day meals on birthdays, memorial days, or sacred tithis in the name of their family members.",
+          "Your contribution ensures that every seeker who visits the sacred sanctum receives nourishing food as Swami's prasad."
+        ],
+      },
+      goshala: {
+        title: "Gau Seva (Goshala)",
+        intro: "Support sacred cow protection, daily fodder, and medical upkeep in accordance with Guru traditions.",
+        body: [
+          "Gau Seva holds supreme importance in Datta and Swami tradition. The Math actively supports cow protection, fresh green fodder, clean shelters, and compassionate veterinary care.",
+          "Devotees can offer Grass (Chara) Seva, medical sponsorships, or general goshala maintenance donations.",
+          "Offerings made towards cow protection bring peace, positive energy, and divine blessings to your household."
+        ],
+      },
+      jeernodhar: {
+        title: "Math Jeernodhar",
+        intro: "Preserve the 125+ year-old sacred vastu, sanctum marble, and historic temple infrastructure.",
+        body: [
+          "Our sacred temple, consecrated in 1898, requires periodic structural preservation, marble maintenance, and roof waterproofing to endure for future generations.",
+          "Contributions directly fund traditional stone craft, brass polishing of sanctum gates, and devotee convenience amenities.",
+          "All contributions are officially acknowledged by the Board of Trustees with authorized trust receipts."
+        ],
+      },
     },
   },
   utsav: {
@@ -101,6 +144,23 @@ export const sections = {
   gallery: {
     label: "Gallery",
     pages: {
+      "utsav-photos": {
+        title: "Utsav Photos",
+        intro: "Memorable moments from grand festival celebrations, Palkhi processions, and Mahaprasad.",
+        body: [
+          "A curated collection of photos capturing the vibrancy, colorful pandals, lighting, and devotional gatherings during major annual Math celebrations.",
+          "Witness the grandeur of Swami's Palkhi traversing the historic streets of Girgaum accompanied by thousands of devotees chanting the Tarak Mantra.",
+          "Experience the joyous spirit of community seva and the divine grace that illuminates every event."
+        ],
+      },
+      "utsav-videos": {
+        title: "Utsav Videos",
+        intro: "Sacred video archives of festive processions, Thursday Palkhi Sohala, and devotional aartis.",
+        body: [
+          "Watch video highlights of major festival celebrations, palkhi circumambulations, and Vedic chanting recorded at the Math.",
+          "Feel the vibrant atmosphere of thousands of devotees immersed in the chanting of 'Swami Samarth' on Khadilkar Road, Girgaum."
+        ],
+      },
       "swami-wallpapers": {
         title: "Swami Wallpapers",
         intro: "High-resolution spiritual wallpapers and divine portraits of Shree Swami Samarth Maharaj.",
@@ -119,19 +179,10 @@ export const sections = {
           "Devotees can take darshan of all shrines during their visit and experience the unified divine energy of the Math."
         ],
       },
-      "utsav-photos": {
-        title: "Utsav Photos",
-        intro: "Memorable moments from grand festival celebrations, Palkhi processions, and Mahaprasad.",
-        body: [
-          "A curated collection of photos capturing the vibrancy, colorful pandals, lighting, and devotional gatherings during major annual Math celebrations.",
-          "Witness the grandeur of Swami's Palkhi traversing the historic streets of Girgaum accompanied by thousands of devotees chanting the Tarak Mantra.",
-          "Experience the joyous spirit of community seva and the divine grace that illuminates every event."
-        ],
-      },
     },
   },
   legal: {
-    label: "Policies",
+    label: "Footer Menus",
     pages: {
       terms: {
         title: "Terms of Use",

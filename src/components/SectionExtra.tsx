@@ -27,6 +27,10 @@ import {
   Sparkles,
   List,
   Grid,
+  Play,
+  Lock,
+  User,
+  Phone,
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
@@ -670,6 +674,61 @@ export function SectionExtra({ section, slug }: { section: string; slug: string 
     );
   }
 
+  // Does & Donts
+  if (slug === "dos-and-donts") {
+    const dos = [
+      "Wear traditional, clean, and modest attire suitable for a sacred temple.",
+      "Deposit your shoes and footwear at the designated counter before entering.",
+      "Maintain peaceful silence in the prayer hall to respect meditating devotees.",
+      "Turn off your mobile phones or keep them strictly on silent mode.",
+      "Stand in designated queues patiently during peak aarti hours.",
+      "Offer coconuts, flowers, and holy prasad with pure devotion.",
+      "Accept sacred Teerth and Angara with reverence using your right hand.",
+    ];
+    const donts = [
+      "Do NOT take photos or video recordings inside the inner sanctum (Gabhara).",
+      "Do NOT touch the sacred idols or holy padukas directly without priest permission.",
+      "Do NOT consume tobacco, betel nut (paan), or alcohol on or near temple premises.",
+      "Do NOT carry large bags, leather items, or sharp objects into the sanctum.",
+      "Do NOT litter flowers, plastic bags, or paper anywhere inside the temple.",
+      "Do NOT cause disturbance, loud speech, or phone conversations during live aartis.",
+      "Do NOT rush or break queue decorum during Palkhi Sohala and festival darshan.",
+    ];
+    return (
+      <div className="mx-auto grid max-w-5xl gap-8 px-4 pb-16 md:grid-cols-2">
+        <div className="rounded-md border-t-4 border-emerald-600 bg-card p-6 shadow-temple">
+          <div className="flex items-center gap-2 text-emerald-700">
+            <CheckCircle className="h-6 w-6" />
+            <h3 className="font-display text-xl font-bold">DO'S for Devotees</h3>
+          </div>
+          <ul className="mt-5 space-y-3">
+            {dos.map((d, i) => (
+              <li key={i} className="flex items-start gap-3 text-sm text-foreground/85">
+                <span className="text-emerald-600 font-bold shrink-0">✓</span>
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="rounded-md border-t-4 border-rose-600 bg-card p-6 shadow-temple">
+          <div className="flex items-center gap-2 text-rose-700">
+            <XCircle className="h-6 w-6" />
+            <h3 className="font-display text-xl font-bold">DON'TS for Devotees</h3>
+          </div>
+          <ul className="mt-5 space-y-3">
+            {donts.map((d, i) => (
+              <li key={i} className="flex items-start gap-3 text-sm text-foreground/85">
+                <span className="text-rose-600 font-bold shrink-0">✕</span>
+                <span>{d}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
+  }
+
   // Utsav Calendar
   if (slug === "calendar") {
     return <UtsavInteractiveCalendar />;
@@ -677,14 +736,98 @@ export function SectionExtra({ section, slug }: { section: string; slug: string 
 
   // Online Seva forms
   if (section === "seva") {
-    if (slug === "donation") {
-      const tiers = [
-        { amount: 501, label: "Daily Aarti & Flowers" },
-        { amount: 1100, label: "One Day Annadan Seva" },
-        { amount: 2500, label: "Special Mahapooja & Prasad" },
-        { amount: 5000, label: "Temple Renovation Fund" },
-        { amount: 11000, label: "Permanent Seva Patron" },
-      ];
+    if (slug === "sign-in") {
+      return (
+        <div className="mx-auto max-w-md px-4 pb-16">
+          <form
+            onSubmit={(e) => { e.preventDefault(); setFormSubmitted(true); }}
+            className="rounded-md border-t-4 border-gold bg-card p-6 sm:p-8 shadow-temple space-y-4"
+          >
+            <div className="text-center pb-2">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-gold/20 text-maroon mb-2">
+                <User className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-maroon">Devotee Sign In</h3>
+              <p className="text-xs text-muted-foreground mt-1">Access your seva history, receipts & sankalpa records</p>
+            </div>
+
+            <label className="block text-sm text-maroon font-medium">
+              Registered Mobile Number / Devotee ID *
+              <div className="relative mt-1">
+                <Phone className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+                <input required placeholder="+91 98765 43210" className="w-full rounded border border-input bg-background pl-9 pr-3 py-2 text-foreground text-sm" />
+              </div>
+            </label>
+
+            <label className="block text-sm text-maroon font-medium">
+              Password or 6-digit OTP *
+              <div className="relative mt-1">
+                <Lock className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+                <input type="password" required placeholder="••••••••" className="w-full rounded border border-input bg-background pl-9 pr-3 py-2 text-foreground text-sm" />
+              </div>
+            </label>
+
+            <div className="flex items-center justify-between text-xs text-muted-foreground pt-1">
+              <label className="flex items-center gap-1.5 cursor-pointer">
+                <input type="checkbox" className="rounded border-input text-primary" />
+                <span>Remember me</span>
+              </label>
+              <a href="#otp" className="text-primary hover:underline font-semibold">Request OTP</a>
+            </div>
+
+            <button type="submit" className="btn-saffron w-full py-2.5 mt-2">
+              Sign In to Devotee Account
+            </button>
+
+            {formSubmitted && (
+              <div className="mt-2 rounded bg-emerald-50 p-3 text-center text-xs font-semibold text-emerald-800 border border-emerald-200">
+                ✓ Signed in successfully! Welcome back to Shree Swami Samarth Seva Portal.
+              </div>
+            )}
+
+            <div className="pt-4 border-t border-border text-center text-xs text-muted-foreground">
+              New to the Math portal?{" "}
+              <Link to="/seva/$slug" params={{ slug: "registration" }} className="text-primary font-bold hover:underline">
+                Register as a Devotee
+              </Link>
+            </div>
+          </form>
+        </div>
+      );
+    }
+
+    if (slug === "donation" || slug === "annadan" || slug === "goshala" || slug === "jeernodhar") {
+      const tierMap: Record<string, { amount: number; label: string }[]> = {
+        donation: [
+          { amount: 501, label: "Daily Aarti & Flowers" },
+          { amount: 1100, label: "One Day Annadan Seva" },
+          { amount: 2500, label: "Special Mahapooja & Prasad" },
+          { amount: 5000, label: "Temple Renovation Fund" },
+          { amount: 11000, label: "Permanent Seva Patron" },
+        ],
+        annadan: [
+          { amount: 501, label: "10 Pilgrims Mahaprasad" },
+          { amount: 1100, label: "One Session Annadan Seva" },
+          { amount: 2500, label: "Full Day Temple Mahaprasad" },
+          { amount: 5000, label: "Festival Feast Sponsorship" },
+          { amount: 11000, label: "Annual Memorial Annadan" },
+        ],
+        goshala: [
+          { amount: 351, label: "One Day Green Grass (Chara)" },
+          { amount: 1001, label: "Monthly Cow Fodder Seva" },
+          { amount: 2500, label: "Gau Pooja & Medical Care" },
+          { amount: 5000, label: "Goshala Shelter Maintenance" },
+          { amount: 11000, label: "Annual Cow Adoption Seva" },
+        ],
+        jeernodhar: [
+          { amount: 1001, label: "Marble Tile Renovation" },
+          { amount: 2500, label: "Brass Sanctum Gate Polish" },
+          { amount: 5000, label: "Sanctum Pillar Restoration" },
+          { amount: 11000, label: "Gold Leafing & Carving" },
+          { amount: 25000, label: "Heritage Vastu Patron" },
+        ],
+      };
+      const tiers = tierMap[slug] || tierMap.donation;
       return (
         <div className="mx-auto max-w-4xl px-4 pb-12">
           {/* Tiers */}
@@ -864,6 +1007,68 @@ export function SectionExtra({ section, slug }: { section: string; slug: string 
 
   // Gallery pages
   if (section === "gallery") {
+    if (slug === "utsav-videos") {
+      const videos = [
+        {
+          img: palkhiCeremony,
+          title: "Thursday Palkhi Sohala & Devotional Chanting",
+          duration: "12:45 mins",
+          desc: "Grand palanquin procession of Shree Swami Samarth Maharaj around Khadilkar Road with hundreds of singing devotees.",
+        },
+        {
+          img: prayerHallAarti,
+          title: "Kakad Aarti & Morning Vedic Recitation",
+          duration: "24:10 mins",
+          desc: "Sacred dawn awakening prayers, Panchamrut Snan, and Stotra chanting inside the sanctum sanctorum.",
+        },
+        {
+          img: havanPooja,
+          title: "Swami Prakat Din Maha Yajna & Havan",
+          duration: "18:30 mins",
+          desc: "Vedic priests performing sacred Ahuti and Rudra Havan during the annual Prakat Din Mahotsav.",
+        },
+        {
+          img: sanctumDevotees,
+          title: "Gurupournima Evening Maha Aarti",
+          duration: "15:20 mins",
+          desc: "Thousands of lit lamps, dhoop deep archan, and collective Tarak Mantra recitation by devotees.",
+        },
+      ];
+      return (
+        <div className="mx-auto max-w-6xl px-4 pb-16">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {videos.map((v, i) => (
+              <div key={i} className="group overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple flex flex-col justify-between">
+                <div className="relative aspect-video overflow-hidden bg-black">
+                  <img src={v.img} alt={v.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition" />
+                  <span className="absolute inset-0 m-auto flex h-12 w-12 items-center justify-center rounded-full bg-gradient-saffron text-xl text-primary-foreground shadow-temple transition group-hover:scale-110">
+                    <Play className="h-5 w-5 fill-current ml-0.5" />
+                  </span>
+                  <span className="absolute bottom-2 right-2 rounded bg-black/80 px-2 py-0.5 text-[10px] font-semibold text-gold">
+                    {v.duration}
+                  </span>
+                </div>
+                <div className="p-4 flex flex-col flex-1 justify-between">
+                  <div>
+                    <h4 className="font-display text-sm font-bold text-maroon line-clamp-1">{v.title}</h4>
+                    <p className="mt-1.5 text-xs text-foreground/80 leading-relaxed line-clamp-2">{v.desc}</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => alert(`Playing: ${v.title}\n\nLive video broadcasts and archive clips will stream here shortly!`)}
+                    className="mt-3 inline-flex items-center justify-center gap-1.5 rounded bg-secondary px-3 py-1.5 text-xs font-semibold text-maroon hover:bg-gold transition"
+                  >
+                    <Play className="h-3 w-3 fill-current" /> Watch Video
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
     if (slug === "swami-wallpapers") {
       const wallpapers = [
         { img: swamiPortraitCloud, title: "Shree Swami Samarth — Celestial Form", res: "3840 x 2160 (4K Ultra HD)" },
