@@ -225,6 +225,57 @@ export const sections = {
 } as const;
 
 export type SectionKey = keyof typeof sections;
-export function getPage(section: SectionKey, slug: string): Page | undefined {
-  return (sections[section].pages as Record<string, Page>)[slug];
+
+export function normalizeSlug(raw: string): string {
+  try {
+    const decoded = decodeURIComponent(raw).trim().toLowerCase();
+    return decoded
+      .replace(/&/g, "and")
+      .replace(/[\s_]+/g, "-")
+      .replace(/[^a-z0-9-]/g, "");
+  } catch {
+    return raw.trim().toLowerCase().replace(/[\s_]+/g, "-");
+  }
+}
+
+export function getCanonicalSlug(section: SectionKey, rawSlug: string): string {
+  const norm = normalizeSlug(rawSlug);
+  if (section === "about") {
+    if (norm === "does-and-donts" || norm === "dos-and-donts" || norm === "doesanddonts") return "dos-and-donts";
+    if (norm === "present-trustees" || norm === "trustees") return "trustees";
+    if (norm === "founder-trustee" || norm === "founder") return "founder";
+    if (norm === "history-of-math" || norm === "history") return "history";
+    if (norm === "social-activities") return "social-activities";
+  }
+  if (section === "utsav") {
+    if (norm === "utsav-calendar" || norm === "calendar") return "calendar";
+  }
+  if (section === "gallery") {
+    if (norm === "other-deities" || norm === "otherdeities") return "other-deities";
+    if (norm === "utsav-videos" || norm === "utsavvideos") return "utsav-videos";
+    if (norm === "utsav-photos" || norm === "utsavphotos") return "utsav-photos";
+    if (norm === "swami-wallpapers" || norm === "swamiwallpapers") return "swami-wallpapers";
+  }
+  if (section === "seva") {
+    if (norm === "sign-in" || norm === "signin") return "sign-in";
+    if (norm === "registration" || norm === "register") return "registration";
+    if (norm === "donation" || norm === "donate") return "donation";
+    if (norm === "annadan" || norm === "nitya-annadan" || norm === "nitya-annadan-seva") return "annadan";
+    if (norm === "goshala" || norm === "gau-seva") return "goshala";
+    if (norm === "jeernodhar" || norm === "math-jeernodhar") return "jeernodhar";
+  }
+  return norm;
+}
+
+export function getPage(section: SectionKey, rawSlug: string): Page | undefined {
+  const pages = sections[section].pages as Record<string, Page>;
+  if (pages[rawSlug]) return pages[rawSlug];
+
+  const canonical = getCanonicalSlug(section, rawSlug);
+  if (pages[canonical]) return pages[canonical];
+
+  const norm = normalizeSlug(rawSlug);
+  if (pages[norm]) return pages[norm];
+
+  return undefined;
 }
