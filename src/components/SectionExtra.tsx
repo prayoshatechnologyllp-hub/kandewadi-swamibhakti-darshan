@@ -2018,23 +2018,10 @@ function DeitiesGallery() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-12 space-y-8">
-      {/* Coming Soon Notice */}
-      <div className="rounded-md border-l-4 border-gold bg-amber-50/70 p-4 sm:p-5 shadow-sm text-maroon flex items-center gap-3">
-        <Sparkles className="h-6 w-6 text-gold shrink-0 animate-pulse" />
-        <div>
-          <h4 className="font-display text-sm sm:text-base font-bold">
-            Expanded Shrine Photo Archives
-          </h4>
-          <p className="text-xs sm:text-sm text-foreground/80 mt-0.5">
-            Comprehensive high-resolution photo archives of all consecrated Parivar Devatas, holy Padukas, and historic temple shrines are being photographed and will be published here shortly.
-          </p>
-        </div>
-      </div>
-
-      <div className="flex items-center justify-between text-xs text-muted-foreground">
-        <span>Click any shrine image to zoom in high resolution</span>
-        <span className="text-primary font-medium">Currently Available Shrines</span>
+    <div className="mx-auto max-w-6xl px-4 pb-12">
+      <div className="mb-6 flex items-center justify-between border-b border-border pb-3 text-xs text-muted-foreground">
+        <span className="font-display text-base sm:text-lg font-bold text-maroon">Sanctum Shrines & Deities</span>
+        <span className="font-semibold text-primary">4 Consecrated Shrines</span>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
