@@ -12,6 +12,7 @@ import altarShrineClose from "@/assets/altar-shrine-close.jpg";
 import plaqueFounder1898 from "@/assets/plaque-founder-1898.png";
 import plaqueTrustees1907 from "@/assets/plaque-trustees-1907.png";
 import templeExteriorFacade from "@/assets/temple-exterior-facade.jpg";
+import glimpseSacredDarshan from "@/assets/glimpse-sacred-darshan.jpg";
 import { MemberGrid, members, trustees } from "@/components/Members";
 import {
   CheckCircle,
@@ -827,7 +828,7 @@ export function SectionExtra({ section, slug }: { section: string; slug: string 
           { amount: 25000, label: "Heritage Vastu Patron" },
         ],
       };
-      const tiers = tierMap[slug] || tierMap.donation;
+      const tiers = (tierMap as Record<string, { amount: number; label: string }[]>)[slug] || tierMap["donation"];
       return (
         <div className="mx-auto max-w-4xl px-4 pb-12">
           {/* Tiers */}

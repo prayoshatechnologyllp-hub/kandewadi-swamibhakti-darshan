@@ -268,7 +268,7 @@ export function getCanonicalSlug(section: SectionKey, rawSlug: string): string {
 }
 
 export function getPage(section: SectionKey, rawSlug: string): Page | undefined {
-  const pages = sections[section].pages as Record<string, Page>;
+  const pages = sections[section].pages as unknown as Record<string, Page>;
   if (pages[rawSlug]) return pages[rawSlug];
 
   const canonical = getCanonicalSlug(section, rawSlug);
