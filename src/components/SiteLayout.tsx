@@ -121,11 +121,23 @@ export function PageBanner({ title, crumb }: { title: string; crumb?: string }) 
   );
 }
 
-export function ContentBody({ intro, body }: { intro: string; body: readonly string[] }) {
+export function ContentBody({
+  intro,
+  body,
+  className,
+}: {
+  intro: string;
+  body: readonly string[];
+  className?: string;
+}) {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12">
-      <p className="font-display text-xl text-maroon">{intro}</p>
-      {body.map((b, i) => <p key={i} className="mt-5 leading-relaxed text-foreground/85">{b}</p>)}
+    <div className={`mx-auto max-w-6xl xl:max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 ${className || ""}`}>
+      <p className="font-display text-lg sm:text-xl text-maroon font-semibold leading-relaxed">{intro}</p>
+      {body.map((b, i) => (
+        <p key={i} className="mt-4 sm:mt-5 leading-relaxed text-foreground/85 text-sm sm:text-base">
+          {b}
+        </p>
+      ))}
     </div>
   );
 }

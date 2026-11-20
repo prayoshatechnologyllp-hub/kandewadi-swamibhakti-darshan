@@ -25,7 +25,7 @@ function ContactComponent() {
       <PageBanner title="Contact Us" />
       <ContentBody intro={intro} body={body} />
 
-      <div className="mx-auto max-w-5xl px-4 pb-16">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
         <div className="grid gap-6 md:grid-cols-2">
           {/* Temple Location Card */}
           <div className="rounded-md border-t-4 border-gold bg-card p-6 sm:p-8 shadow-temple flex flex-col justify-between">

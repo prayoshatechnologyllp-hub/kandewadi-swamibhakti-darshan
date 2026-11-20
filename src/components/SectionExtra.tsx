@@ -504,9 +504,9 @@ export function SectionExtra({ section, slug }: { section: string; slug: string 
   // History timeline
   if (slug === "history") {
     return (
-      <div className="mx-auto max-w-5xl px-4 pb-12">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
         {/* Authentic Marathi History Section */}
-        <div className="rounded-md border-t-4 border-gold bg-card p-6 sm:p-10 shadow-temple mb-12">
+        <div className="rounded-md border-t-4 border-gold bg-card p-6 sm:p-10 lg:p-12 shadow-temple mb-12">
           <div className="text-center pb-6 border-b border-border">
             <span className="text-xs font-semibold tracking-widest text-primary uppercase">SACRED HERITAGE</span>
             <h3 className="mt-2 font-display text-2xl sm:text-3xl font-bold text-maroon">
@@ -686,7 +686,7 @@ export function SectionExtra({ section, slug }: { section: string; slug: string 
   // Founder page
   if (slug === "founder") {
     return (
-      <div className="mx-auto max-w-5xl px-4 pb-12">
+      <div className="mx-auto max-w-6xl xl:max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="flex flex-col items-center rounded-md border-8 border-card bg-white p-4 shadow-temple">
             <img src={plaqueFounder1898} alt="Shri Rao Saheb Ganesh Ballal Mulekar Foundation Plaque" className="max-h-[420px] w-auto object-contain" />
