@@ -5,7 +5,6 @@ import templeExterior from "@/assets/temple-exterior-facade.jpg";
 import aartiHall from "@/assets/prayer-hall-aarti.jpg";
 import palkhiCeremony from "@/assets/palkhi-ceremony.jpg";
 import sanctumDevotees from "@/assets/sanctum-devotees.jpg";
-import plaqueFounder from "@/assets/plaque-founder-1898.png";
 import glimpseSacredDarshan from "@/assets/glimpse-sacred-darshan.jpg";
 import glimpseFestivalDecorations from "@/assets/glimpse-festival-decorations.jpg";
 import glimpseDevotionLight from "@/assets/glimpse-devotion-light.jpg";
@@ -40,7 +39,7 @@ const upcomingUtsavs = [
 const videos = [
   { img: aartiHall, t: "Kakad Aarti – Live", d: "Daily 6:00 AM" },
   { img: palkhiCeremony, t: "Thursday Palkhi Sohala", d: "Weekly 7:30 PM" },
-  { img: sanctumDevotees, t: "Sanctum Darshan & Bhajan", d: "Devotional Seva" },
+  { img: sanctumDevotees, t: "Sanctum Utsav & Bhajan", d: "Devotional Seva" },
 ];
 
 export const Route = createFileRoute("/")({
@@ -77,9 +76,9 @@ function Index() {
             Khadilkar Road / Kandewadi, Girgaum, Mumbai – 400004
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link to="/edarshan" className="btn-saffron">Live Darshan</Link>
+            <Link to="/utsav/calendar" className="btn-saffron">Math Utsav</Link>
             <Link to="/seva/donation" className="btn-outline-gold">Donate Seva</Link>
-            <Link to="/utsav/calendar" className="btn-outline-gold">Utsav Calendar</Link>
+            <Link to="/gallery/utsav-videos" className="btn-outline-gold">Utsav Videos</Link>
           </div>
         </div>
       </section>
@@ -279,41 +278,32 @@ function Index() {
 
       <section className="mt-20 bg-banner py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="text-center"><h2 className="font-display text-3xl text-gold-foreground md:text-4xl">Darshan Videos</h2><div className="divider mx-auto mt-3" /></div>
+          <div className="text-center">
+            <h2 className="font-display text-3xl text-gold-foreground md:text-4xl">Utsav Videos</h2>
+            <div className="divider mx-auto mt-3" />
+          </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {videos.map((v) => (
-              <a key={v.t} href="/edarshan" className="group overflow-hidden rounded-md bg-card shadow-temple">
+              <Link key={v.t} to="/gallery/utsav-videos" className="group overflow-hidden rounded-md bg-card shadow-temple">
                 <div className="relative aspect-video">
                   <img src={v.img} alt={v.t} loading="lazy" width={1200} height={800} className="h-full w-full object-cover" />
                   <span className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-saffron text-2xl text-primary-foreground shadow-temple transition group-hover:scale-110">▶</span>
                 </div>
-                <div className="p-4"><h3 className="font-display text-lg text-maroon">{v.t}</h3><p className="text-sm text-muted-foreground">{v.d}</p></div>
-              </a>
+                <div className="p-4">
+                  <h3 className="font-display text-lg text-maroon">{v.t}</h3>
+                  <p className="text-sm text-muted-foreground">{v.d}</p>
+                </div>
+              </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="mx-auto mt-20 grid max-w-5xl items-center gap-10 px-4 md:grid-cols-[280px_1fr]">
-        <div className="overflow-hidden rounded-md border-8 border-card shadow-temple bg-white flex items-center justify-center p-2">
-          <img src={plaqueFounder} alt="Foundation Plaque - Shri Rao Saheb Ganesh Ballal Mulekar (1898)" loading="lazy" width={800} height={1008} className="max-h-[380px] w-auto object-contain" />
-        </div>
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="h-[1.5px] w-6 bg-primary" />
-            <span className="text-xs font-semibold tracking-widest text-primary uppercase">FOUNDER OF THE MATH</span>
-          </div>
-          <h2 className="mt-2 font-display text-3xl text-maroon">Shri Rao Saheb Ganesh Ballal Mulekar</h2>
-          <div className="divider mt-3" />
-          <p className="mt-5 leading-relaxed text-foreground/85">
-            On <strong>8th October 1898</strong> (दिनांक ८ आक्टोबर १८९८), revered devotee Shri Rao Saheb Ganesh Ballal Mulekar, together with ardent Swami devotees, consecrated the holy Padukas of Shree Swami Samarth Maharaj at this sacred premises on Khadilkar Road, Girgaum.
-          </p>
-          <p className="mt-3 leading-relaxed text-foreground/80 text-sm">
-            On 9th May 1907, his successor Shri Dattatraya Ganesh Mulekar formally entrusted the sacred property and operations to the Board of Trustees, creating an enduring legacy of devotion and service.
-          </p>
-          <div className="mt-6 flex gap-3">
-            <Link to="/about/founder" className="btn-saffron">Read Founder History</Link>
-            <Link to="/about/trustees" className="btn-outline-gold">Board of Trustees</Link>
+          <div className="mt-8 text-center">
+            <Link
+              to="/gallery/utsav-videos"
+              className="inline-flex items-center gap-2 rounded border border-gold bg-gold/10 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-gold-foreground transition hover:bg-gold hover:text-maroon"
+            >
+              <span>View All Utsav Videos</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
