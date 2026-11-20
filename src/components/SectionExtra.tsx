@@ -1214,15 +1214,13 @@ function ImageLightboxModal({
         className="flex items-center justify-between border-b border-white/10 pb-3 text-white"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="max-w-[65%]">
-          <h3 className="font-display text-sm font-bold text-gold sm:text-lg truncate">
+        <div className="max-w-[70%]">
+          <h3 className="font-display text-sm sm:text-base font-bold text-gold truncate">
             {current.title}
           </h3>
-          <div className="flex flex-wrap items-center gap-2 text-xs text-white/70">
-            {current.res && <span className="rounded bg-white/15 px-2 py-0.5 text-cream">{current.res}</span>}
-            <span>Photo {currentIndex + 1} of {items.length}</span>
-            <span className="hidden md:inline text-gold">• Click image or Zoom button to magnify</span>
-          </div>
+          <p className="text-xs text-white/70 mt-0.5">
+            {currentIndex + 1} / {items.length} {current.res ? `• ${current.res}` : ""}
+          </p>
         </div>
 
         <div className="flex items-center gap-2">
@@ -1230,23 +1228,22 @@ function ImageLightboxModal({
           <button
             type="button"
             onClick={toggleZoom}
-            className="flex items-center gap-1.5 rounded-md border border-gold/50 bg-white/10 px-3 py-1.5 text-xs font-semibold text-gold hover:bg-gold hover:text-maroon transition"
-            title="Toggle zoom level"
+            className="flex items-center gap-1.5 rounded-md border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white hover:bg-gold hover:text-maroon transition"
+            title="Toggle zoom"
           >
             {zoomLevel > 1 ? <ZoomOut className="h-4 w-4" /> : <ZoomIn className="h-4 w-4" />}
-            <span className="hidden sm:inline">{zoomLevel === 1 ? "Zoom In" : `${zoomLevel * 100}%`}</span>
+            <span className="hidden sm:inline">{zoomLevel === 1 ? "Zoom" : `${zoomLevel * 100}%`}</span>
           </button>
 
           {/* Download button */}
           <a
             href={current.img}
             download={current.downloadName || `${current.title.toLowerCase().replace(/[^a-z0-9]/g, "-")}.png`}
-            className="flex items-center gap-1.5 rounded-md bg-gradient-saffron px-3.5 py-1.5 text-xs font-bold text-primary-foreground shadow-temple hover:brightness-110 transition"
-            title="Download full size image"
+            className="flex items-center gap-1.5 rounded-md bg-gradient-saffron px-3.5 py-1.5 text-xs font-semibold text-primary-foreground shadow hover:brightness-110 transition"
+            title="Download image"
           >
             <Download className="h-4 w-4" />
-            <span className="hidden sm:inline">Download Full Size</span>
-            <span className="sm:hidden">Download</span>
+            <span className="hidden sm:inline">Download</span>
           </a>
 
           {/* Close button */}
@@ -1254,7 +1251,7 @@ function ImageLightboxModal({
             type="button"
             onClick={onClose}
             className="rounded-full bg-white/15 p-2 text-white/80 hover:bg-white/30 hover:text-white transition"
-            title="Close (Esc)"
+            title="Close"
           >
             <X className="h-5 w-5" />
           </button>
@@ -1280,7 +1277,7 @@ function ImageLightboxModal({
 
         {/* The Zoomable Image */}
         <div
-          className={`overflow-auto max-h-[72vh] max-w-full flex items-center justify-center p-2 transition-transform duration-300 ${
+          className={`overflow-auto max-h-[75vh] max-w-full flex items-center justify-center p-2 transition-transform duration-300 ${
             zoomLevel === 1 ? "cursor-zoom-in" : "cursor-zoom-out"
           }`}
           onClick={toggleZoom}
@@ -1293,7 +1290,7 @@ function ImageLightboxModal({
               transformOrigin: "center center",
               transition: "transform 0.25s ease-out",
             }}
-            className="max-h-[68vh] w-auto max-w-full object-contain rounded shadow-2xl"
+            className="max-h-[72vh] w-auto max-w-full object-contain rounded shadow-2xl"
           />
         </div>
 
@@ -1310,26 +1307,15 @@ function ImageLightboxModal({
         )}
       </div>
 
-      {/* Bottom Caption & Download Bar */}
-      <div
-        className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 pt-3 text-white/80 text-xs"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="text-center sm:text-left">
-          {current.desc && <p className="text-white/90 text-sm max-w-2xl">{current.desc}</p>}
-          <p className="text-white/50 text-[11px] mt-0.5">
-            Click image to toggle zoom ({zoomLevel * 100}%) • Use ‹ › keys to browse • Click Download for full original resolution
-          </p>
-        </div>
-
-        <a
-          href={current.img}
-          download={current.downloadName || `${current.title.toLowerCase().replace(/[^a-z0-9]/g, "-")}.png`}
-          className="inline-flex items-center gap-1.5 rounded border border-gold/60 bg-gold/20 px-4 py-2 font-bold text-gold hover:bg-gold hover:text-maroon transition"
+      {/* Bottom Clean Caption */}
+      {current.desc && (
+        <div
+          className="border-t border-white/10 pt-3 text-center text-white/85 text-xs sm:text-sm max-w-2xl mx-auto pb-1"
+          onClick={(e) => e.stopPropagation()}
         >
-          <Download className="h-4 w-4" /> Download Original (Zoom Size)
-        </a>
-      </div>
+          <p>{current.desc}</p>
+        </div>
+      )}
     </div>
   );
 }
