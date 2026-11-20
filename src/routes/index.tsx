@@ -103,7 +103,7 @@ export const Route = createFileRoute("/")({
 });
 
 const cards = [
-  { t: "eDarshan", d: "Live Aarti & functions (Coming Soon)", h: "/edarshan" },
+  { t: "eDarshan", d: "Live Aarti & functions", disabled: true },
   { t: "Online Seva", d: "Abhishek, Laghurudra & more", h: "/seva/registration" },
   { t: "Donation", d: "Support the Math's projects", h: "/seva/donation" },
   { t: "Utsav Calendar", d: "Upcoming festivals", h: "/utsav/calendar" },
@@ -153,61 +153,75 @@ function Index() {
       </section>
 
       {/* 4 Feature Cards */}
-      <section className="mx-auto -mt-10 grid max-w-6xl gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
-        {cards.map((c) => (
-          <a key={c.t} href={c.h} className="rounded-md border-t-4 border-gold bg-card p-6 text-center shadow-temple transition hover:-translate-y-1">
-            <h3 className="font-display text-xl text-maroon">{c.t}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">{c.d}</p>
-          </a>
-        ))}
+      <section className="mx-auto -mt-8 sm:-mt-10 grid max-w-6xl gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-4 px-4 relative z-10">
+        {cards.map((c) =>
+          c.disabled ? (
+            <div
+              key={c.t}
+              className="rounded-md border-t-4 border-gold/60 bg-card p-4 sm:p-6 text-center shadow-temple cursor-not-allowed opacity-80 select-none flex flex-col justify-center min-h-[105px] sm:min-h-[120px]"
+            >
+              <h3 className="font-display text-base sm:text-xl font-bold text-maroon/80">{c.t}</h3>
+              <p className="mt-1 text-xs sm:text-sm text-muted-foreground">{c.d}</p>
+            </div>
+          ) : (
+            <Link
+              key={c.t}
+              to={c.h}
+              className="rounded-md border-t-4 border-gold bg-card p-4 sm:p-6 text-center shadow-temple transition duration-200 hover:-translate-y-1 hover:shadow-lg flex flex-col justify-center min-h-[105px] sm:min-h-[120px]"
+            >
+              <h3 className="font-display text-base sm:text-xl font-bold text-maroon">{c.t}</h3>
+              <p className="mt-1 text-xs sm:text-sm text-muted-foreground">{c.d}</p>
+            </Link>
+          )
+        )}
       </section>
 
       {/* About The Math */}
-      <section className="mx-auto mt-20 grid max-w-6xl items-center gap-10 px-4 md:grid-cols-2">
+      <section className="mx-auto mt-14 sm:mt-20 grid max-w-6xl items-center gap-8 sm:gap-10 px-4 md:grid-cols-2">
         <div>
           <div className="flex items-center gap-2">
             <span className="h-[1.5px] w-6 bg-primary" />
             <span className="text-xs font-semibold tracking-widest text-primary uppercase">SACRED HERITAGE</span>
           </div>
-          <h2 className="mt-2 font-display text-3xl text-maroon md:text-4xl">About the Math</h2>
+          <h2 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl text-maroon">About the Math</h2>
           <div className="divider mt-3" />
-          <p className="mt-5 leading-relaxed text-foreground/85 text-sm sm:text-base">
+          <p className="mt-4 sm:mt-5 leading-relaxed text-foreground/85 text-xs sm:text-sm md:text-base">
             Consecrated on <strong>8th October 1898</strong> on Khadilkar Road, Girgaum, the Math has served as a beacon of solace, peace, and divine blessings for over 125 years. The holy Padukas of Shree Swami Samarth Maharaj are worshipped daily with sacred Vedic rituals, akhand naam jap, and regular Thursday Palkhi Sohala.
           </p>
-          <p className="mt-3 leading-relaxed text-foreground/80 text-sm">
+          <p className="mt-3 leading-relaxed text-foreground/80 text-xs sm:text-sm">
             On 9th May 1907, the sacred vastu was formally entrusted to the Board of Trustees, sustaining a timeless legacy of selfless Annadan, community seva, and spiritual upliftment.
           </p>
-          <div className="mt-6 flex gap-3">
-            <Link to="/about/history" className="btn-saffron">Read History</Link>
+          <div className="mt-5 sm:mt-6 flex gap-3">
+            <Link to="/about/history" className="btn-saffron text-xs sm:text-sm">Read History</Link>
           </div>
         </div>
-        <div className="overflow-hidden rounded-md border-8 border-card shadow-temple">
-          <img src={templeExterior} alt="Math entrance on Khadilkar Road, Girgaum" loading="lazy" width={1200} height={800} className="w-full object-cover transition duration-700 hover:scale-105" />
+        <div className="overflow-hidden rounded-md border-4 sm:border-8 border-card shadow-temple">
+          <img src={templeExterior} alt="Math entrance on Khadilkar Road, Girgaum" loading="lazy" width={1200} height={800} className="w-full aspect-[4/3] object-cover transition duration-700 hover:scale-105" />
         </div>
       </section>
 
       {/* Daily Live Aarti Timings (4 Boxes in place of statistics) */}
-      <section className="mx-auto mt-20 max-w-6xl px-4">
-        <div className="text-center mb-10">
+      <section className="mx-auto mt-14 sm:mt-20 max-w-6xl px-4">
+        <div className="text-center mb-8 sm:mb-10">
           <div className="flex items-center justify-center gap-2">
             <span className="h-[1.5px] w-6 bg-primary" />
             <span className="text-xs font-semibold tracking-widest text-primary uppercase">SACRED DAILY SCHEDULE</span>
             <span className="h-[1.5px] w-6 bg-primary" />
           </div>
-          <h2 className="mt-2 font-display text-3xl text-maroon md:text-4xl">Daily Live Aarti Timings</h2>
-          <p className="mt-2 text-xs sm:text-sm text-muted-foreground">Traditional Vedic aartis conducted daily by learned temple priests</p>
+          <h2 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl text-maroon">Daily Live Aarti Timings</h2>
+          <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-muted-foreground">Traditional Vedic aartis conducted daily by learned temple priests</p>
           <div className="divider mx-auto mt-3" />
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {dailyAartis.map((a, i) => (
             <div
               key={i}
-              className="rounded-md border-t-4 border-gold bg-card p-6 shadow-temple transition duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
+              className="rounded-md border-t-4 border-gold bg-card p-5 sm:p-6 shadow-temple transition duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between pb-3 border-b border-border">
-                  <span className="rounded bg-gold/15 px-2.5 py-1 text-xs font-bold text-maroon">
+                  <span className="rounded bg-gold/15 px-2.5 py-0.5 sm:py-1 text-[11px] sm:text-xs font-bold text-maroon">
                     {a.type}
                   </span>
                   <div className="flex items-center gap-1 text-xs font-semibold text-primary">
@@ -216,15 +230,15 @@ function Index() {
                   </div>
                 </div>
 
-                <div className="mt-4">
-                  <h3 className="font-display text-xl font-bold text-maroon">{a.marathi}</h3>
-                  <h4 className="text-sm font-semibold text-primary">{a.english}</h4>
-                  <p className="mt-2 text-xs leading-relaxed text-foreground/80">{a.desc}</p>
+                <div className="mt-3 sm:mt-4">
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-maroon">{a.marathi}</h3>
+                  <h4 className="text-xs sm:text-sm font-semibold text-primary">{a.english}</h4>
+                  <p className="mt-1.5 sm:mt-2 text-xs leading-relaxed text-foreground/80">{a.desc}</p>
                 </div>
               </div>
 
-              <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs font-medium text-gold">
-                <span className="flex items-center gap-1.5 text-maroon">
+              <div className="mt-4 sm:mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs font-medium">
+                <span className="flex items-center gap-1.5 text-maroon font-semibold">
                   <Flame className="h-3.5 w-3.5 text-primary" /> Live in Temple
                 </span>
                 <span className="font-bold text-primary">{a.time}</span>
@@ -317,74 +331,127 @@ function Index() {
       </section>
 
       {/* Divine Moments - Glimpses from the Math */}
-      <section className="mx-auto mt-20 max-w-6xl px-4">
-        <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+      <section className="mx-auto mt-14 sm:mt-20 max-w-6xl px-4">
+        <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
           <div>
             <div className="flex items-center gap-2">
-              <span className="h-[1.5px] w-6 bg-[#C97A44]" />
-              <span className="text-xs font-semibold tracking-widest text-[#C97A44] uppercase">
+              <span className="h-[1.5px] w-6 bg-primary" />
+              <span className="text-xs font-semibold tracking-widest text-primary uppercase">
                 DIVINE MOMENTS
               </span>
             </div>
-            <h2 className="mt-2 font-display text-3xl text-maroon md:text-5xl">
-              Glimpses from the <span className="italic font-normal text-primary">Math.</span>
+            <h2 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl text-maroon">
+              Glimpses from the Math
             </h2>
           </div>
           <Link
             to="/gallery/utsav-photos"
-            className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-maroon transition hover:text-primary uppercase"
+            className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider text-primary hover:text-maroon transition uppercase self-start sm:self-auto"
           >
-            <span>VIEW COMPLETE GALLERY</span>
+            <span>View Complete Gallery</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-12">
-          {/* Main Ganesha / Sacred Darshan Card */}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Card 1: Sacred Shrines */}
           <Link
             to="/gallery/other-deities"
-            className="group relative overflow-hidden rounded-md shadow-temple md:col-span-7 aspect-[16/11] md:aspect-auto md:h-full min-h-[340px]"
+            className="group flex flex-col justify-between overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple transition duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
-            <img
-              src={glimpseSacredDarshan}
-              alt="Sacred Darshan"
-              loading="lazy"
-              width={1000}
-              height={700}
-              className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-            />
+            <div className="relative aspect-[4/3] overflow-hidden bg-secondary/30">
+              <img
+                src={glimpseSacredDarshan}
+                alt="Lord Ganesha & Consecrated Shrines"
+                loading="lazy"
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-hero-overlay opacity-0 group-hover:opacity-75 transition flex items-center justify-center text-white">
+                <span className="rounded-full bg-black/60 px-3 py-1.5 text-xs font-bold text-gold">
+                  Explore Shrines
+                </span>
+              </div>
+            </div>
+            <div className="p-4 flex items-center justify-between">
+              <div>
+                <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">
+                  HOLY SHRINES
+                </span>
+                <h3 className="font-display text-base font-bold text-maroon">
+                  Consecrated Deities & Altar
+                </h3>
+              </div>
+              <span className="rounded bg-secondary p-1.5 text-maroon group-hover:bg-gold transition">
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </div>
           </Link>
 
-          {/* Right 2 Cards */}
-          <div className="flex flex-col gap-5 md:col-span-5">
-            <Link
-              to="/gallery/utsav-photos"
-              className="group relative overflow-hidden rounded-md shadow-temple aspect-[16/9] min-h-[165px]"
-            >
+          {/* Card 2: Festival Decorations */}
+          <Link
+            to="/gallery/utsav-photos"
+            className="group flex flex-col justify-between overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div className="relative aspect-[4/3] overflow-hidden bg-secondary/30">
               <img
                 src={glimpseFestivalDecorations}
-                alt="Festival Decorations"
+                alt="Temple Grand Festive Floral Decoration"
                 loading="lazy"
-                width={700}
-                height={400}
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
-            </Link>
+              <div className="absolute inset-0 bg-hero-overlay opacity-0 group-hover:opacity-75 transition flex items-center justify-center text-white">
+                <span className="rounded-full bg-black/60 px-3 py-1.5 text-xs font-bold text-gold">
+                  View Festival Photos
+                </span>
+              </div>
+            </div>
+            <div className="p-4 flex items-center justify-between">
+              <div>
+                <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">
+                  UTSAV SHRINGAR
+                </span>
+                <h3 className="font-display text-base font-bold text-maroon">
+                  Festival Floral Decorations
+                </h3>
+              </div>
+              <span className="rounded bg-secondary p-1.5 text-maroon group-hover:bg-gold transition">
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </div>
+          </Link>
 
-            <Link
-              to="/gallery/utsav-photos"
-              className="group relative overflow-hidden rounded-md shadow-temple aspect-[16/9] min-h-[165px]"
-            >
+          {/* Card 3: Devotion & Aarti */}
+          <Link
+            to="/gallery/utsav-photos"
+            className="group flex flex-col justify-between overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:col-span-2 lg:col-span-1"
+          >
+            <div className="relative aspect-[4/3] overflow-hidden bg-secondary/30">
               <img
                 src={glimpseDevotionLight}
-                alt="Devotion in Light"
+                alt="Deepotsav & Aarti Chanting"
                 loading="lazy"
-                width={700}
-                height={400}
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
-            </Link>
-          </div>
+              <div className="absolute inset-0 bg-hero-overlay opacity-0 group-hover:opacity-75 transition flex items-center justify-center text-white">
+                <span className="rounded-full bg-black/60 px-3 py-1.5 text-xs font-bold text-gold">
+                  View Palkhi Photos
+                </span>
+              </div>
+            </div>
+            <div className="p-4 flex items-center justify-between">
+              <div>
+                <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">
+                  PALKHI SOHALA
+                </span>
+                <h3 className="font-display text-base font-bold text-maroon">
+                  Deepotsav & Evening Aarti
+                </h3>
+              </div>
+              <span className="rounded bg-secondary p-1.5 text-maroon group-hover:bg-gold transition">
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </div>
+          </Link>
         </div>
       </section>
 

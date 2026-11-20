@@ -50,14 +50,10 @@ export const Route = createFileRoute("/appeal")({
 function AppealComponent() {
   return (
     <SiteLayout>
-      <PageBanner title="An Appeal to Devotees" crumb="Coming Soon…" />
+      <PageBanner title="An Appeal to Devotees" />
 
-      {/* Coming Soon Notice */}
       <div className="mx-auto max-w-4xl px-4 pt-8">
         <div className="rounded-md border-2 border-gold bg-gradient-to-r from-maroon via-maroon-dark to-maroon p-6 text-cream shadow-temple text-center">
-          <span className="inline-block rounded-full bg-gold/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold mb-2">
-            Coming Soon…
-          </span>
           <h2 className="font-display text-2xl font-bold text-gold">Official Projects Appeal Portal Under Finalization</h2>
           <p className="mt-2 text-xs sm:text-sm text-cream/90 max-w-2xl mx-auto leading-relaxed">
             The Board of Trustees is finalizing the project blueprints and dedicated bank channels for the upcoming sanctum restoration, annachhatra expansion, and health clinics. Detailed contribution portals will be launched shortly.

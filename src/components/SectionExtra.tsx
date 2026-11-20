@@ -2038,7 +2038,7 @@ function DeitiesGallery() {
         <Sparkles className="h-6 w-6 text-gold shrink-0 animate-pulse" />
         <div>
           <h4 className="font-display text-sm sm:text-base font-bold">
-            Expanded Shrine Photo Archives — Coming Soon…
+            Expanded Shrine Photo Archives
           </h4>
           <p className="text-xs sm:text-sm text-foreground/80 mt-0.5">
             Comprehensive high-resolution photo archives of all consecrated Parivar Devatas, holy Padukas, and historic temple shrines are being photographed and will be published here shortly.

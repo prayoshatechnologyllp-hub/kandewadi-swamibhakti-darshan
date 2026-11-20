@@ -52,10 +52,18 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <ul className="mx-auto flex max-w-7xl flex-col px-4 md:flex-row md:flex-wrap md:items-center">
             <li><Link to="/" className="nav-link">Home</Link></li>
             <Dropdown k="about" />
-            <li><Link to="/edarshan" className="nav-link flex items-center gap-1.5">eDarshan <span className="rounded bg-black/20 px-1.5 py-0.5 text-[10px] font-bold text-cream">Soon</span></Link></li>
+            <li>
+              <span className="nav-link opacity-60 cursor-not-allowed select-none inline-block" title="Disabled">
+                eDarshan
+              </span>
+            </li>
             <Dropdown k="seva" />
             <Dropdown k="utsav" />
-            <li><Link to="/appeal" className="nav-link flex items-center gap-1.5">An Appeal <span className="rounded bg-black/20 px-1.5 py-0.5 text-[10px] font-bold text-cream">Soon</span></Link></li>
+            <li>
+              <span className="nav-link opacity-60 cursor-not-allowed select-none inline-block" title="Disabled">
+                An Appeal
+              </span>
+            </li>
             <Dropdown k="gallery" />
             <li><Link to="/contact" className="nav-link">Contact Us</Link></li>
           </ul>
@@ -82,7 +90,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <h3 className="font-display text-xl text-gold">Quick Links</h3>
             <ul className="mt-3 space-y-1 text-sm opacity-80">
               <li><Link to="/about/history">History of Math</Link></li>
-              <li><Link to="/edarshan">eDarshan (Live Aarti)</Link></li>
+              <li><span className="opacity-50 cursor-not-allowed">eDarshan</span></li>
               <li><Link to="/seva/donation">Online Seva & Donation</Link></li>
               <li><Link to="/utsav/calendar">Utsav Calendar</Link></li>
             </ul>

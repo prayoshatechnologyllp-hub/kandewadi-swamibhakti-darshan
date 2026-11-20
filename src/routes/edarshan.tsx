@@ -36,14 +36,10 @@ function EDarshanComponent() {
 
   return (
     <SiteLayout>
-      <PageBanner title="eDarshan - Live Darshan & Aarti" crumb="Coming Soon…" />
+      <PageBanner title="eDarshan - Live Darshan & Aarti" />
       
-      {/* Coming Soon Notice */}
       <div className="mx-auto max-w-4xl px-4 pt-8">
         <div className="rounded-md border-2 border-gold bg-gradient-to-r from-maroon via-maroon-dark to-maroon p-6 text-cream shadow-temple text-center">
-          <span className="inline-block rounded-full bg-gold/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold mb-2">
-            Coming Soon…
-          </span>
           <h2 className="font-display text-2xl font-bold text-gold">Sacred Live Streaming Facility in Progress</h2>
           <p className="mt-2 text-xs sm:text-sm text-cream/90 max-w-2xl mx-auto leading-relaxed">
             High-definition cameras and dedicated streaming lines are currently being installed in the inner sanctum (Gabhara). Devotees worldwide will soon be able to take live darshan and participate in daily aartis from anywhere.
