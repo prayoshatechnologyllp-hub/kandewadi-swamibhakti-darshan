@@ -63,23 +63,6 @@ export const sections = {
           "You will also receive timely updates regarding upcoming Math Utsavs, Palkhi Sohala, and auspicious tithis throughout the year."
         ],
       },
-      "sign-in": {
-        title: "Sign In",
-        intro: "Devotee sign-in portal to manage seva bookings, access donation receipts, and update profile details.",
-        body: [
-          "Registered devotees can sign in to view their booked sevas, check scheduled pooja dates, download official 80G tax receipts, and track prasad dispatches.",
-          "If you do not have an account yet, please register on the Registration page to create your devotee profile."
-        ],
-      },
-      donation: {
-        title: "Donation",
-        intro: "Support the spiritual, cultural, and charitable initiatives undertaken by the Math.",
-        body: [
-          "Your generous contributions help sustain the daily temple rituals, Annadan seva, renovation of ancient shrine structures, and charitable welfare activities for the needy.",
-          "Donations can be offered towards specific causes such as Daily Mahaprasad, Temple Maintenance, Goshala, or the General Trust Fund.",
-          "All donations made to the Math Trust are accounted for with official receipts and are eligible for tax exemption as per statutory trust regulations."
-        ],
-      },
       abhishek: {
         title: "Abhishek",
         intro: "Book sacred Vedic Abhishek Seva for the divine blessings of Shree Swami Samarth Maharaj.",
@@ -96,6 +79,23 @@ export const sections = {
           "Laghurudra is one of the most powerful and auspicious rituals in Vedic tradition, dedicated to Lord Shiva and the Guru lineage for overcoming obstacles and bestowing peace and good health.",
           "In a Laghurudra, eleven learned Vedic Brahmins chant the sacred Sri Rudram 121 times accompanied by continuous sacred libations (Abhishek) and followed by a solemn Havan.",
           "Devotees wishing to sponsor or participate in Laghurudra Seva can reserve dates in advance through this portal."
+        ],
+      },
+      donation: {
+        title: "Donation",
+        intro: "Support the spiritual, cultural, and charitable initiatives undertaken by the Math.",
+        body: [
+          "Your generous contributions help sustain the daily temple rituals, Annadan seva, renovation of ancient shrine structures, and charitable welfare activities for the needy.",
+          "Donations can be offered towards specific causes such as Daily Mahaprasad, Temple Maintenance, Goshala, or the General Trust Fund.",
+          "All donations made to the Math Trust are accounted for with official receipts and are eligible for tax exemption as per statutory trust regulations."
+        ],
+      },
+      "sign-in": {
+        title: "Sign In",
+        intro: "Devotee sign-in portal to manage seva bookings, access donation receipts, and update profile details.",
+        body: [
+          "Registered devotees can sign in to view their booked sevas, check scheduled pooja dates, download official 80G tax receipts, and track prasad dispatches.",
+          "If you do not have an account yet, please register on the Registration page to create your devotee profile."
         ],
       },
       annadan: {

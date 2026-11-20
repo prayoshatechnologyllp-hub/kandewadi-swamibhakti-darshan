@@ -71,7 +71,12 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               </div>
               <h3 className="font-display text-xl text-gold">Shree Swami Samarth Math</h3>
             </div>
-            <p className="mt-3 text-sm opacity-80">Kandewadi, Girgaum, Mumbai – 400004, Maharashtra, India.<br />Phone: +91 00000 00000<br />Email: info@yourdomain.com</p>
+            <p className="mt-3 text-sm opacity-80">
+              22, First Akkalkot Lane, Khadilkar Marg, Kandewadi,<br />
+              Girgaon, Mumbai – 400004, Maharashtra, India.<br />
+              Phone: +91 8655654886 / 8655654887<br />
+              Email: info@swamimathgirgaon.com
+            </p>
           </div>
           <div>
             <h3 className="font-display text-xl text-gold">Quick Links</h3>

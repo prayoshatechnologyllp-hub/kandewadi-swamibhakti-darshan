@@ -8,7 +8,8 @@ import sanctumDevotees from "@/assets/sanctum-devotees.jpg";
 import glimpseSacredDarshan from "@/assets/glimpse-sacred-darshan.jpg";
 import glimpseFestivalDecorations from "@/assets/glimpse-festival-decorations.jpg";
 import glimpseDevotionLight from "@/assets/glimpse-devotion-light.jpg";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Calendar, Clock, ArrowRight, Play, X, ExternalLink, Flame } from "lucide-react";
+import { useState } from "react";
 
 const upcomingUtsavs = [
   {
@@ -36,10 +37,57 @@ const upcomingUtsavs = [
     link: "/utsav/calendar",
   },
 ];
+
+const dailyAartis = [
+  {
+    marathi: "काकड आरती",
+    english: "Kakad Aarti",
+    time: "6:00 AM",
+    type: "Morning Dawn",
+    desc: "Sacred dawn awakening of Shree Swami Samarth, Panchamrut Snan & Stotra chanting.",
+  },
+  {
+    marathi: "दुपारची आरती",
+    english: "Madhyana Aarti / Bhog",
+    time: "12:00 PM",
+    type: "Midday Offering",
+    desc: "Consecrated afternoon Mahaprasad naivedya arpan, shankha naad & puja.",
+  },
+  {
+    marathi: "धूप आरती",
+    english: "Dhoop Aarti",
+    time: "7:00 PM",
+    type: "Sunset Sandhya",
+    desc: "Sunset illumination of holy lamps, dhoop deep archan & collective bhajan.",
+  },
+  {
+    marathi: "शेज आरती",
+    english: "Shej Aarti",
+    time: "9:30 PM",
+    type: "Night Rest",
+    desc: "Lullaby and night prayer putting the Guru to rest with sacred silence.",
+  },
+];
+
 const videos = [
-  { img: aartiHall, t: "Kakad Aarti – Live", d: "Daily 6:00 AM" },
-  { img: palkhiCeremony, t: "Thursday Palkhi Sohala", d: "Weekly 7:30 PM" },
-  { img: sanctumDevotees, t: "Sanctum Utsav & Bhajan", d: "Devotional Seva" },
+  {
+    img: aartiHall,
+    t: "Kakad Aarti – Live Darshan",
+    d: "Daily 6:00 AM",
+    youtubeId: "rR34e8rZ2cM",
+  },
+  {
+    img: palkhiCeremony,
+    t: "Thursday Palkhi Sohala & Chanting",
+    d: "Weekly 7:30 PM",
+    youtubeId: "W4i2B6QvO8g",
+  },
+  {
+    img: sanctumDevotees,
+    t: "Sanctum Utsav & Bhajan Sandhya",
+    d: "Devotional Seva",
+    youtubeId: "vB0jP8h7WlA",
+  },
 ];
 
 export const Route = createFileRoute("/")({
@@ -55,34 +103,56 @@ export const Route = createFileRoute("/")({
 });
 
 const cards = [
-  { t: "eDarshan", d: "Live Aarti & functions", h: "/edarshan" },
-  { t: "Online Seva", d: "Abhishek, Laghurudra & more", h: "/seva/abhishek" },
+  { t: "eDarshan", d: "Live Aarti & functions (Coming Soon)", h: "/edarshan" },
+  { t: "Online Seva", d: "Abhishek, Laghurudra & more", h: "/seva/registration" },
   { t: "Donation", d: "Support the Math's projects", h: "/seva/donation" },
   { t: "Utsav Calendar", d: "Upcoming festivals", h: "/utsav/calendar" },
 ];
 
 function Index() {
+  const [activeYoutubeVideo, setActiveYoutubeVideo] = useState<{
+    t: string;
+    d: string;
+    youtubeId: string;
+  } | null>(null);
+
   return (
     <SiteLayout>
-      <section className="relative">
-        <img src={heroAltar} alt="Shree Swami Samarth Maharaj sanctum shrine" width={1600} height={912} className="h-[75vh] w-full object-cover" />
+      {/* Mobile-Friendly Hero Section */}
+      <section className="relative min-h-[75vh] sm:min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <img
+          src={heroAltar}
+          alt="Shree Swami Samarth Maharaj sanctum shrine"
+          width={1600}
+          height={912}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div className="absolute inset-0 bg-hero-overlay" />
-        <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 text-center">
-          <p className="text-lg text-gold">॥ श्री स्वामी समर्थ ॥ &nbsp; भिऊ नकोस, मी तुझ्या पाठीशी आहे</p>
-          <h1 className="mt-2 max-w-4xl px-4 font-display text-4xl font-bold text-gold-foreground md:text-6xl">
+        <div className="relative z-10 mx-auto flex flex-col items-center justify-center px-4 py-16 text-center max-w-4xl">
+          <p className="text-xs sm:text-base md:text-lg text-gold font-medium tracking-wide">
+            ॥ श्री स्वामी समर्थ ॥ &nbsp; भिऊ नकोस, मी तुझ्या पाठीशी आहे
+          </p>
+          <h1 className="mt-2 font-display text-2xl sm:text-4xl md:text-6xl font-bold text-gold-foreground leading-tight sm:leading-snug">
             Shree Akkalkot Swami Samarth Math
           </h1>
-          <p className="mt-3 text-base text-gold-foreground/90 font-medium">
+          <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-gold-foreground/90 font-medium max-w-xl mx-auto">
             Khadilkar Road / Kandewadi, Girgaum, Mumbai – 400004
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link to="/utsav/calendar" className="btn-saffron">Math Utsav</Link>
-            <Link to="/seva/donation" className="btn-outline-gold">Donate Seva</Link>
-            <Link to="/gallery/utsav-videos" className="btn-outline-gold">Utsav Videos</Link>
+          <div className="mt-6 flex flex-wrap justify-center gap-2.5 sm:gap-3">
+            <Link to="/utsav/calendar" className="btn-saffron text-xs sm:text-sm px-4 sm:px-6 py-2.5">
+              Math Utsav
+            </Link>
+            <Link to="/seva/donation" className="btn-outline-gold text-xs sm:text-sm px-4 sm:px-6 py-2.5">
+              Donate Seva
+            </Link>
+            <Link to="/gallery/utsav-videos" className="btn-outline-gold text-xs sm:text-sm px-4 sm:px-6 py-2.5">
+              Utsav Videos
+            </Link>
           </div>
         </div>
       </section>
 
+      {/* 4 Feature Cards */}
       <section className="mx-auto -mt-10 grid max-w-6xl gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
         {cards.map((c) => (
           <a key={c.t} href={c.h} className="rounded-md border-t-4 border-gold bg-card p-6 text-center shadow-temple transition hover:-translate-y-1">
@@ -92,6 +162,7 @@ function Index() {
         ))}
       </section>
 
+      {/* About The Math */}
       <section className="mx-auto mt-20 grid max-w-6xl items-center gap-10 px-4 md:grid-cols-2">
         <div>
           <div className="flex items-center gap-2">
@@ -100,15 +171,14 @@ function Index() {
           </div>
           <h2 className="mt-2 font-display text-3xl text-maroon md:text-4xl">About the Math</h2>
           <div className="divider mt-3" />
-          <p className="mt-5 leading-relaxed text-foreground/85">
+          <p className="mt-5 leading-relaxed text-foreground/85 text-sm sm:text-base">
             Consecrated on <strong>8th October 1898</strong> on Khadilkar Road, Girgaum, the Math has served as a beacon of solace, peace, and divine blessings for over 125 years. The holy Padukas of Shree Swami Samarth Maharaj are worshipped daily with sacred Vedic rituals, akhand naam jap, and regular Thursday Palkhi Sohala.
           </p>
           <p className="mt-3 leading-relaxed text-foreground/80 text-sm">
-            On 9th May 1907, the sacred vastu was formally entrusted to the Board of Trustees, sustaining a legacy of selfless Annadan, community seva, and spiritual upliftment.
+            On 9th May 1907, the sacred vastu was formally entrusted to the Board of Trustees, sustaining a timeless legacy of selfless Annadan, community seva, and spiritual upliftment.
           </p>
           <div className="mt-6 flex gap-3">
             <Link to="/about/history" className="btn-saffron">Read History</Link>
-            <Link to="/about/founder" className="btn-outline-gold">Our Founder</Link>
           </div>
         </div>
         <div className="overflow-hidden rounded-md border-8 border-card shadow-temple">
@@ -116,10 +186,52 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto mt-20 grid max-w-6xl gap-6 px-4 text-center sm:grid-cols-4">
-        {[["75+","Years of Seva"],["20+","Utsavs a Year"],["1 Lakh+","Devotees"],["365","Days Annadan"]].map(([n,l]) => (
-          <div key={l} className="rounded-md bg-secondary p-6"><div className="font-display text-4xl font-bold text-primary">{n}</div><div className="mt-1 text-sm text-maroon">{l}</div></div>
-        ))}
+      {/* Daily Live Aarti Timings (4 Boxes in place of statistics) */}
+      <section className="mx-auto mt-20 max-w-6xl px-4">
+        <div className="text-center mb-10">
+          <div className="flex items-center justify-center gap-2">
+            <span className="h-[1.5px] w-6 bg-primary" />
+            <span className="text-xs font-semibold tracking-widest text-primary uppercase">SACRED DAILY SCHEDULE</span>
+            <span className="h-[1.5px] w-6 bg-primary" />
+          </div>
+          <h2 className="mt-2 font-display text-3xl text-maroon md:text-4xl">Daily Live Aarti Timings</h2>
+          <p className="mt-2 text-xs sm:text-sm text-muted-foreground">Traditional Vedic aartis conducted daily by learned temple priests</p>
+          <div className="divider mx-auto mt-3" />
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {dailyAartis.map((a, i) => (
+            <div
+              key={i}
+              className="rounded-md border-t-4 border-gold bg-card p-6 shadow-temple transition duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between pb-3 border-b border-border">
+                  <span className="rounded bg-gold/15 px-2.5 py-1 text-xs font-bold text-maroon">
+                    {a.type}
+                  </span>
+                  <div className="flex items-center gap-1 text-xs font-semibold text-primary">
+                    <Clock className="h-3.5 w-3.5" />
+                    <span>{a.time}</span>
+                  </div>
+                </div>
+
+                <div className="mt-4">
+                  <h3 className="font-display text-xl font-bold text-maroon">{a.marathi}</h3>
+                  <h4 className="text-sm font-semibold text-primary">{a.english}</h4>
+                  <p className="mt-2 text-xs leading-relaxed text-foreground/80">{a.desc}</p>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs font-medium text-gold">
+                <span className="flex items-center gap-1.5 text-maroon">
+                  <Flame className="h-3.5 w-3.5 text-primary" /> Live in Temple
+                </span>
+                <span className="font-bold text-primary">{a.time}</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Math Utsav - Upcoming sacred celebrations */}
@@ -276,26 +388,41 @@ function Index() {
         </div>
       </section>
 
+      {/* Utsav Videos Section with YouTube Pop up */}
       <section className="mt-20 bg-banner py-16">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
             <h2 className="font-display text-3xl text-gold-foreground md:text-4xl">Utsav Videos</h2>
+            <p className="mt-1 text-xs text-gold/80">Click any video to watch through YouTube in a separate popup</p>
             <div className="divider mx-auto mt-3" />
           </div>
+
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {videos.map((v) => (
-              <Link key={v.t} to="/gallery/utsav-videos" className="group overflow-hidden rounded-md bg-card shadow-temple">
+              <div
+                key={v.t}
+                onClick={() => setActiveYoutubeVideo(v)}
+                className="group overflow-hidden rounded-md bg-card shadow-temple cursor-pointer transition hover:-translate-y-1"
+              >
                 <div className="relative aspect-video">
                   <img src={v.img} alt={v.t} loading="lazy" width={1200} height={800} className="h-full w-full object-cover" />
-                  <span className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-saffron text-2xl text-primary-foreground shadow-temple transition group-hover:scale-110">▶</span>
+                  <span className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-saffron text-2xl text-primary-foreground shadow-temple transition group-hover:scale-110">
+                    <Play className="h-7 w-7 fill-current ml-1" />
+                  </span>
                 </div>
-                <div className="p-4">
-                  <h3 className="font-display text-lg text-maroon">{v.t}</h3>
-                  <p className="text-sm text-muted-foreground">{v.d}</p>
+                <div className="p-4 flex items-center justify-between">
+                  <div>
+                    <h3 className="font-display text-base font-bold text-maroon">{v.t}</h3>
+                    <p className="text-xs text-muted-foreground">{v.d}</p>
+                  </div>
+                  <span className="rounded bg-secondary p-2 text-maroon group-hover:bg-gold transition">
+                    <ExternalLink className="h-4 w-4" />
+                  </span>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
+
           <div className="mt-8 text-center">
             <Link
               to="/gallery/utsav-videos"
@@ -307,6 +434,58 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {/* YouTube Pop up Player Modal */}
+      {activeYoutubeVideo && (
+        <div
+          className="fixed inset-0 z-[150] flex items-center justify-center bg-black/90 p-4 backdrop-blur-md animate-in fade-in duration-200"
+          onClick={() => setActiveYoutubeVideo(null)}
+        >
+          <div
+            className="relative w-full max-w-4xl rounded-lg bg-card border-2 border-gold shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between bg-maroon px-4 py-3 text-gold-foreground">
+              <div className="flex items-center gap-2">
+                <Play className="h-5 w-5 text-gold fill-current" />
+                <h3 className="font-display text-sm sm:text-base font-bold text-gold">
+                  {activeYoutubeVideo.t}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveYoutubeVideo(null)}
+                className="rounded-full bg-white/10 p-1.5 text-gold hover:bg-white/20 transition"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <div className="relative aspect-video w-full bg-black">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${activeYoutubeVideo.youtubeId}?autoplay=1&rel=0`}
+                title={activeYoutubeVideo.t}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="h-full w-full border-0"
+              />
+            </div>
+
+            <div className="p-4 bg-card flex flex-col sm:flex-row items-center justify-between gap-3 text-xs border-t">
+              <span className="text-muted-foreground">{activeYoutubeVideo.d} • Shree Swami Samarth Math, Kandewadi</span>
+              <a
+                href={`https://www.youtube.com/watch?v=${activeYoutubeVideo.youtubeId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-bold text-maroon hover:text-primary transition"
+              >
+                <span>Watch directly on YouTube</span>
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </SiteLayout>
   );
 }

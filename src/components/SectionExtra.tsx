@@ -13,6 +13,11 @@ import plaqueFounder1898 from "@/assets/plaque-founder-1898.png";
 import plaqueTrustees1907 from "@/assets/plaque-trustees-1907.png";
 import templeExteriorFacade from "@/assets/temple-exterior-facade.jpg";
 import glimpseSacredDarshan from "@/assets/glimpse-sacred-darshan.jpg";
+import glimpseFestivalDecorations from "@/assets/glimpse-festival-decorations.jpg";
+import glimpseDevotionLight from "@/assets/glimpse-devotion-light.jpg";
+import utsav from "@/assets/utsav.jpg";
+import annadan from "@/assets/annadan.jpg";
+import aarti from "@/assets/aarti.jpg";
 import { MemberGrid, members, trustees } from "@/components/Members";
 import {
   CheckCircle,
@@ -35,6 +40,8 @@ import {
   ZoomIn,
   ZoomOut,
   X,
+  ArrowRight,
+  ExternalLink,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
@@ -498,7 +505,136 @@ export function SectionExtra({ section, slug }: { section: string; slug: string 
   if (slug === "history") {
     return (
       <div className="mx-auto max-w-5xl px-4 pb-12">
-        <h3 className="text-center font-display text-2xl text-maroon">Chronicles of Sacred Devotion</h3>
+        {/* Authentic Marathi History Section */}
+        <div className="rounded-md border-t-4 border-gold bg-card p-6 sm:p-10 shadow-temple mb-12">
+          <div className="text-center pb-6 border-b border-border">
+            <span className="text-xs font-semibold tracking-widest text-primary uppercase">SACRED HERITAGE</span>
+            <h3 className="mt-2 font-display text-2xl sm:text-3xl font-bold text-maroon">
+              श्री स्वामी समर्थ महाराजांची मुंबापुरी गादी
+            </h3>
+            <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
+              कांदेवाडी मठ, गिरगाव — ऐतिहासिक पार्श्वभूमी व माहात्म्य
+            </p>
+            <div className="divider mx-auto mt-4" />
+          </div>
+
+          <div className="mt-8 space-y-6 text-sm sm:text-base leading-relaxed text-foreground/90 font-serif">
+            <p>
+              ही घटना सुमारे १८६८ च्या सुमारास घडली आहे. शिवछत्रपतींकडून जहागिरी लाभलेल्या एका श्रीमंत घराण्यातील <strong>हरिबा</strong> नावाचा तरुण, मोठी स्वप्न घेऊन अगदी लहान वयात मुंबई नगरीत आला.
+            </p>
+            <p>
+              स्वतःच्या कष्टांवर आणि जिद्दीने उभं राहून या महानगरात स्थायिक होण्याची त्याची इच्छा होती. मात्र, महानगरपालिकेत नोकरीतून हे स्वप्न साकार होणार नाही याची त्याला पूर्ण जाणीव होती. म्हणूनच त्याने जोड व्यवसाय करण्याचा मार्ग स्वीकारला.
+            </p>
+            <p>
+              एका मित्रासोबत त्याने व्यवसाय सुरू केला. परंतु नशिबाने साथ दिली नाही. मोठं नुकसान झालं आणि दोघांवर कर्जाचा डोंगर उभा राहिला. प्रामाणिकपणे आयुष्य जगणाऱ्या या तरुणांच्या आयुष्यात नैराश्य दाटून आलं. काय करावं, कुठे जावं, कोणाकडे धाव घ्यावी - काहीच सुचेनासं झालं. नोकरी जाण्याची भीती, समाजात मानहानी होण्याची चिंता आणि स्वतःच्या अपयशाचं ओझं त्यांच्या मनावर कोसळलं.
+            </p>
+            <p>
+              त्या काळात सोलापूर जिल्ह्यातील अक्कलकोट येथे साक्षात परब्रह्मस्वरूप श्री स्वामी समर्थ महाराज विराजमान असल्याची ख्याती सर्वत्र पसरली होती. भक्त त्यांच्या दर्शनासाठी अक्कलकोटला येत असत.
+            </p>
+            <p>
+              मुंबईतील एका निर्धन ब्राह्मणाने अक्कलकोट येथे जाऊन श्रींचे दर्शन घेतले होते. त्या ब्राह्मणाचे दारिद्र्य श्रीकृपेने दूर होऊन तो चिंतामुक्त झाला होता. एका गरीब ब्राह्मणाला श्रींच्या कृपेने दारिद्र्यापासून मुक्ती मिळाल्याची घटना हरिबाच्या मित्राला कळली. तोपर्यंत त्याने हरिबाचे कर्जदेखील आपल्या अंगावर घेतले होते. म्हणूनच त्याने मनोमन श्री स्वामींना कर्जमुक्तीची प्रार्थना केली आणि आश्चर्य म्हणजे काही दिवसांतच तो कर्जातून मुक्त झाला. हीच प्रेरणा ठरली आणि हरिबा आपल्या मित्रांसोबत अक्कलकोटला जाण्याचे निमित्त झाले.
+            </p>
+            <p>
+              साक्षात परब्रह्माचे दर्शन घेऊन, त्या परमात्म्याकडे आपल्या प्रापंचिक उन्नतीकरिता प्रार्थना करावी. या पुढे आपण जो काही व्यवसाय करू, त्यात उत्तम यश मिळावे अशी प्रार्थना करून श्रींचा आशीर्वाद संपादन करावा, नवीन आयुष्याला सुरुवात करावी या हेतूने ते श्रीदर्शनास आले होते. पण प्रत्यक्षात मात्र काहीतरी वेगळेच घडले.
+            </p>
+
+            <div className="my-6 rounded-md bg-secondary/50 border-l-4 border-gold p-5">
+              <p className="font-semibold text-maroon text-base sm:text-lg">
+                "आजपासून तू माझा 'सुत' आहेस..."
+              </p>
+              <p className="mt-2 text-foreground/85 text-sm sm:text-base leading-relaxed">
+                एके दिवशी हरिबा श्री स्वामी महाराजांच्या दर्शनास गेले असता, श्री स्वामी महाराजांनी त्यांना आपल्या मांडीवर घेतले आणि म्हणाले, <em>"आजपासून तू माझा 'सुत' आहेस. सर्व व्यवहार, व्यवसाय सोडून दे. सर्व गोष्टींचा त्याग कर."</em> असे सांगून नंतर त्यांनी त्याला एक भगवी कफनी दिली. याच दरम्यान श्रींच्या मांडीवर बसले असता, हरिबाना श्री स्वामी महाराजांची प्रगट लीला उमगली होती. वार, तिथी, नक्षत्र, ठिकाण - सर्व काही त्यांना उमगले.
+              </p>
+            </div>
+
+            <p>
+              नंतर श्री स्वामी महाराजांनी त्यांना आपले आत्मलिंग (पादुका) दिल्या. श्रींच्या मांडीवरून उतरले तेव्हा ते हरिभाऊ राहिले नव्हते. देह जरी तोच असला तरी जणू त्यांचा <strong>'श्री स्वामीसुत महाराज'</strong> म्हणून पुनर्जन्म झाला होता.
+            </p>
+            <p>
+              श्री स्वामी महाराजांनी त्यांना आत्मलिंग देत असताना, <em>"हे माझे आत्मलिंग तुला देत आहे. दर्याकिनारी माझी उत्तम ध्वजा उभी कर"</em>, असे सांगितले होते. श्रींच्या सांगण्यानुसार ते मुंबईमध्ये आले.
+            </p>
+            <p>
+              श्रींचे आत्मलिंग (पादुका) त्यांनी मुंबई येथील आपल्या कामाठीपुऱ्यातील राहत्या घरी स्थापन केल्या. इथे पादुकांचे दर्शन घेण्यास खूप गर्दी होऊ लागली. म्हणून श्री स्वामीसुत महाराजांच्या एका भक्त भगिनीने त्यांना आपल्या गिरगाव कांदेवाडी येथील भाड्याच्या जागेमध्ये ह्या पादुका स्थापन करण्यासाठी आणले.
+            </p>
+            <p>
+              इथे भाविकांची गर्दी दिवसेंदिवस वाढतच गेली. विविध जाती-धर्माचे भक्त एकाच श्रद्धेच्या धाग्यात गुंफले जाऊन येथे येऊ लागले. भक्तिभाव, समता आणि आध्यात्मिक ऊर्जेने नटलेला हा पवित्र परिसर प्रत्येकाच्या अंतःकरणाला स्पर्श करू लागला. अशा दिव्य आणि प्रेरणादायी वातावरणामुळे श्रींचा हा 'कांदेवाडी मठ' लवकरच सर्वत्र कीर्ती पावला आणि असंख्य भाविकांच्या श्रद्धेचे केंद्रस्थान बनला.
+            </p>
+
+            {/* Abhang Box */}
+            <div className="my-8 rounded-md bg-gradient-to-r from-maroon/95 to-maroon p-6 sm:p-8 text-cream shadow-temple border-2 border-gold text-center">
+              <span className="text-xs uppercase tracking-widest text-gold font-bold">श्री स्वामीसुत महाराज कृत दिव्य अभंग</span>
+              <div className="divider mx-auto mt-2 mb-6" />
+              <div className="space-y-2 font-serif text-sm sm:text-base leading-loose text-gold-foreground">
+                <p>भवती समुद्राचा वेढा ।। आत गादीचा हा झेंडा</p>
+                <p>विशाळ ध्वज हा फडकत ।। पाहता आनंद बहुत</p>
+                <p>थोर नौबतीचा घोष।। निघे स्वामी स्वामी खास</p>
+                <p>वटवृक्ष हा साजिरा।। स्वामी अवतारिचा बरा</p>
+                <p>ऐसी गादी विराजित।। सिंहासनी हा भगवंत</p>
+                <p>राजाधीराज योगिराज ।। एक सत्ता हे महाराज</p>
+                <p>हेचि स्वामीचे मंदिर।। माझे सुखाचे हो घर</p>
+                <p>सोडुनिया द्वैतबाध ।। प्रेमे येथे घेती छंद</p>
+                <p>सर्व येवोनी त्रिकाळ।। मन इच्छे घेती फळ</p>
+                <p>ऐसी गादी हो सुंदर।। वरी स्वामी मनोहर</p>
+                <p>स्वामिसुत मुंबापुरी।। आनंद स्वामीचे मंदिरी</p>
+              </div>
+            </div>
+
+            <p>
+              या पवित्र वास्तूमध्ये <strong>शके १७९२ (इ.स. १८७०)</strong> साली श्री स्वामीसुत महाराजांनी श्री स्वामींचा जयंती उत्सव सुरू केला. त्या काळी हा सोहळा संपूर्ण एक महिना चालणारा भव्य उत्सव असे. फाल्गुन शुक्ल द्वितीयेच्या दिवशी श्री स्वामीसुत महाराज या जयंती उत्सवाची मंगल नांदी करत आणि या सोहळ्यास ते "श्री स्वामी महापर्वणी" असे संबोधत. पहाटेच्या पवित्र वेळी श्रींचा छबिना गिरगाव चौपाटीच्या सागरतीर्थावर नेला जाई.
+            </p>
+            <p>
+              श्री स्वामीसुत महाराजांनी सांगितल्याप्रमाणे समुद्रापर्यंत मार्गक्रमणाच्या संपूर्ण रस्त्याची साफसफाई करण्यात येत असे, नंतर रस्त्यावर पायघड्या घालून दुतर्फा रांगोळी काढून तो मार्ग सजविण्यात येत असे. मग चौपाटी येथे आत्मलिंगावर समुद्रस्नानाचा विधी पार पडत असे. त्यानंतर कांदेवाडी मठात अखंड एक महिना विविध धार्मिक कार्यक्रमांची रेलचेल असे - कधी कीर्तन, कधी प्रवचन, तर कधी स्वतः श्री स्वामीसुत महाराज नामस्मरणात तल्लीन होत. विविध जाती-धर्मातील भक्त या उत्सवात सहभागी होऊन श्री स्वामींच्या नामात एकरूप होत असत.
+            </p>
+            <p>
+              फाल्गुन वद्य त्रयोदशीला या उत्सवाला विशेष उधाण येत असे. त्या दिवशी श्रींच्या जयंतीनिमित्त गुढी उभारली जाई आणि निशाणाची स्थापना केली जाई. चैत्र शुक्ल द्वितीयेच्या दिवशी श्री स्वामींचा प्रकट दिन (जयंती) मोठ्या उत्साहात आणि जल्लोषात साजरा केला जात असे.
+            </p>
+            <p>
+              पुढे श्रावण वद्य प्रतिपदा, शके १७९६ (इ.स. १८७४ साली) श्री स्वामीसुत महाराजांनी याच मठात आपला देह ठेवला. त्यावेळी श्री स्वामी समर्थ महाराज अक्कलकोटी देहस्वरूपी नांदत होते. त्यांनी लागलीच काही दिवसांत श्री स्वामीसुत महाराजांचे धाकटे बंधू <strong>चि. दादा</strong> यास श्री स्वामीसुत महाराजांच्या जागी मुंबापुरी गादी सांभाळण्यास नेमले. श्रीदादाबुवांनी श्री स्वामी समर्थ महाराजांची ही मुंबापुरी गादी तब्बल तीस वर्षांहून अधिक काळ सांभाळली.
+            </p>
+            <p>
+              <strong>१८९८</strong> मध्ये श्री स्वामी भक्त <strong>श्री. गणेश बल्लाळ मुळेकर</strong> यांनी ही जागा विकत घेतली व ८ ऑक्टोबर १८९८ रोजी श्री स्वामी भक्तांसमवेत नव्याने श्री स्वामी समर्थांच्या पादुकांची स्थापना केली. नंतर ह्या मठाचे श्री स्वामीसुत महाराजांच्या नावाने लोकार्पण करण्यात आले. अखेर १९०४ ते १९०७ च्या दरम्यान श्रीदादाबुवांनी देखील आपला देह श्री स्वामी चरणी विलीन केला. नंतर श्री. दत्तात्रय गणेश मुळेकरांनी ९ मे १९०७ रोजी ह्या वास्तूची व्यवस्था विश्वस्त मंडळाच्या हाती सुपूर्द केली.
+            </p>
+            <p>
+              दरम्यानच्या काळात येथे श्री स्वामी भक्त <strong>श्री बाळप्पा महाराज</strong> यांनी अक्कलकोट येथून पाठवलेल्या श्री स्वामी समर्थांच्या पादुकांची स्थापना या मठात अत्यंत भक्तिभावाने करण्यात आली. आज त्याच पादुका आपल्याला ह्या कांदेवाडीमधील मठात श्री स्वामी महाराजांपुढे दिसतात.
+            </p>
+            <p>
+              श्री स्वामी समर्थ महाराजांचा मुंबईतील हा पहिला मठ असून श्री स्वामी सूत महाराजांच्या सांगण्यानुसार ही, "श्रींची मुंबापुरी गादी" समस्त श्री स्वामी भक्तांना आजसुद्धा अत्यंत प्रिय आहे. त्याकाळी मुंबईतील कोणीही भक्त थेट अक्कलकोट येथे श्रींच्या दर्शनास गेल्यास श्री स्वामी महाराज त्याला आधी श्री स्वामीसुत महाराजांनी स्थापन केलेल्या कांदेवाडी येथील मठात जाण्यास सांगत. यातूनच या मठाचे वैशिष्ट्य आणि महिमा अधोरेखित होतो.
+            </p>
+
+            <div className="my-6 rounded-md bg-secondary/50 border-l-4 border-gold p-5">
+              <p className="font-semibold text-maroon text-sm sm:text-base">
+                स्वामी बाप माझा उभा हा तिष्ठत ।। कटी एक हस्त ठेउनीया<br />
+                भक्तासी भेटाया उभा हा समर्थ ।। शोभा वीराजीत काय सांगु<br />
+                या हो सर्व तुम्ही तयासी भेटाया।। नाचु होउनीया येकमेळी<br />
+                स्वामीसूत म्हणे उभा हा समर्थ ।। दाउ मोक्षपंथ भक्तजना
+              </p>
+            </div>
+
+            {/* Prashant Mulekar's Reflection */}
+            <div className="mt-8 pt-6 border-t border-border">
+              <h4 className="font-display text-lg font-bold text-maroon">
+                श्री स्वामी समर्थ मठ, कांदेवाडी — भक्ती, सेवा आणि श्री स्वामींच्या कृपेचे अखंड स्पंदन
+              </h4>
+              <p className="text-xs text-primary font-semibold mt-1">पिढ्यान् पिढ्या जपलेले श्री स्वामी चैतन्य</p>
+              <div className="mt-4 space-y-3 text-xs sm:text-sm text-foreground/85 leading-relaxed italic">
+                <p>
+                  "माझ्या पणजोबांनी, श्री. रावसाहेब गणेश बल्लाळ मुळेकर यांनी दिनांक ८ ऑक्टोबर १८९८ रोजी, श्री स्वामीभक्तांच्या साक्षीने गिरगावातील या पवित्र मठात श्री स्वामींच्या पादुकांची पुनर्स्थापना केली. त्या पादुका अक्कलकोटमध्ये श्री बाळप्पा महाराजांनी त्यांचे परमभक्त श्री विष्णुपंत पानवळकर यांना दिल्या आणि त्यांना आज्ञा केली 'या पादुका गिरगावातील मठात स्थापन करा.' त्या दिवशी केवळ पादुका नव्हे, तर श्री स्वामींचं सजीव अस्तित्वच या मठात स्थिरावलं."
+                </p>
+                <p>
+                  "यानंतर सन १९०७ मध्ये माझे आजोबा श्री. दत्तात्रय गणेश मुळेकर यांनी मठाच्या वास्तूची जबाबदारी विश्वस्तांच्या हाती सुपूर्द केली. त्या क्षणापासून ही सेवा केवळ कुटुंबापुरती मर्यादित न राहता, समाजाच्या श्रद्धेचा अमूल्य वारसा बनली. या मुळेकर घराण्यात जन्म मिळाल्यामुळे मी स्वतःला अत्यंत भाग्यवान समजतो."
+                </p>
+                <p>
+                  "मठात येणारा प्रत्येक भक्त - तो श्रीमंत असो वा गरीब, लहान असो वा मोठा सर्वांना सारखी वागणूक मिळाली पाहिजे, हीच आमची धारणा. आणि शेवटी एक गोष्ट मनाला अपार आनंद देऊन जाते - मठात वाढत चाललेली तरुणांची उपस्थिती. आजची तरुण पिढी इतक्या श्रद्धेने श्री स्वामींकडे आकर्षित होताना पाहून छाती अभिमानाने भरून येते. हीच खरी श्री स्वामींच्या कृपेची जिवंत साक्ष आहे."
+                </p>
+              </div>
+              <div className="mt-4 text-right font-display font-bold text-maroon text-sm">
+                — प्रशांत मुळेकर
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 className="text-center font-display text-2xl text-maroon mt-12">Historic Consecration & Architecture</h3>
         <div className="divider mx-auto mt-3" />
 
         {/* Historic Foundation Plaques */}
@@ -1012,65 +1148,7 @@ export function SectionExtra({ section, slug }: { section: string; slug: string 
   // Gallery pages
   if (section === "gallery") {
     if (slug === "utsav-videos") {
-      const videos = [
-        {
-          img: palkhiCeremony,
-          title: "Thursday Palkhi Sohala & Devotional Chanting",
-          duration: "12:45 mins",
-          desc: "Grand palanquin procession of Shree Swami Samarth Maharaj around Khadilkar Road with hundreds of singing devotees.",
-        },
-        {
-          img: prayerHallAarti,
-          title: "Kakad Aarti & Morning Vedic Recitation",
-          duration: "24:10 mins",
-          desc: "Sacred dawn awakening prayers, Panchamrut Snan, and Stotra chanting inside the sanctum sanctorum.",
-        },
-        {
-          img: havanPooja,
-          title: "Swami Prakat Din Maha Yajna & Havan",
-          duration: "18:30 mins",
-          desc: "Vedic priests performing sacred Ahuti and Rudra Havan during the annual Prakat Din Mahotsav.",
-        },
-        {
-          img: sanctumDevotees,
-          title: "Gurupournima Evening Maha Aarti",
-          duration: "15:20 mins",
-          desc: "Thousands of lit lamps, dhoop deep archan, and collective Tarak Mantra recitation by devotees.",
-        },
-      ];
-      return (
-        <div className="mx-auto max-w-6xl px-4 pb-16">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {videos.map((v, i) => (
-              <div key={i} className="group overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple flex flex-col justify-between">
-                <div className="relative aspect-video overflow-hidden bg-black">
-                  <img src={v.img} alt={v.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100" />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition" />
-                  <span className="absolute inset-0 m-auto flex h-12 w-12 items-center justify-center rounded-full bg-gradient-saffron text-xl text-primary-foreground shadow-temple transition group-hover:scale-110">
-                    <Play className="h-5 w-5 fill-current ml-0.5" />
-                  </span>
-                  <span className="absolute bottom-2 right-2 rounded bg-black/80 px-2 py-0.5 text-[10px] font-semibold text-gold">
-                    {v.duration}
-                  </span>
-                </div>
-                <div className="p-4 flex flex-col flex-1 justify-between">
-                  <div>
-                    <h4 className="font-display text-sm font-bold text-maroon line-clamp-1">{v.title}</h4>
-                    <p className="mt-1.5 text-xs text-foreground/80 leading-relaxed line-clamp-2">{v.desc}</p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => alert(`Playing: ${v.title}\n\nLive video broadcasts and archive clips will stream here shortly!`)}
-                    className="mt-3 inline-flex items-center justify-center gap-1.5 rounded bg-secondary px-3 py-1.5 text-xs font-semibold text-maroon hover:bg-gold transition"
-                  >
-                    <Play className="h-3 w-3 fill-current" /> Watch Video
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      );
+      return <UtsavVideosGallery />;
     }
 
     if (slug === "swami-wallpapers") {
@@ -1256,6 +1334,575 @@ function ImageLightboxModal({
   );
 }
 
+function YouTubeModal({
+  video,
+  onClose,
+}: {
+  video: { title: string; youtubeId: string; desc?: string };
+  onClose: () => void;
+}) {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-[120] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm animate-in fade-in"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-4xl overflow-hidden rounded-lg bg-card shadow-2xl border border-gold/40"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between border-b border-border bg-card p-4">
+          <div className="max-w-[85%]">
+            <h4 className="font-display text-base sm:text-lg font-bold text-maroon truncate">
+              {video.title}
+            </h4>
+            {video.desc && <p className="text-xs text-muted-foreground truncate">{video.desc}</p>}
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-full p-2 text-foreground/70 hover:bg-secondary hover:text-foreground transition"
+            title="Close (Esc)"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+        <div className="relative aspect-video w-full bg-black">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&rel=0`}
+            title={video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="h-full w-full border-0"
+          />
+        </div>
+        <div className="p-3 bg-secondary/50 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+          <span>Playing through YouTube Official Player</span>
+          <a
+            href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-primary hover:underline font-semibold"
+          >
+            Open on YouTube <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// -------------------------------------------------------------
+// 1. PhotosGallery: 2-Level Gallery (4 Utsav Cards -> Multi-Photos -> Zoom Lightbox)
+// -------------------------------------------------------------
+interface UtsavPhotoAlbum {
+  id: string;
+  name: string;
+  subtitle: string;
+  coverImg: string;
+  photos: GalleryImageItem[];
+}
+
+function PhotosGallery() {
+  const albums: UtsavPhotoAlbum[] = [
+    {
+      id: "prakat-din",
+      name: "Shree Swami Samarth Prakat Din Mahotsav",
+      subtitle: "Annual Appearance Day Grand Celebrations",
+      coverImg: glimpseFestivalDecorations,
+      photos: [
+        { img: glimpseFestivalDecorations, title: "Temple Grand Festive Floral Decoration", res: "High Resolution", desc: "Exquisite floral festoons and vibrant festive adornments throughout the sanctum.", downloadName: "Prakat-Din-Floral-Decorations.jpg" },
+        { img: havanPooja, title: "Prakat Din Maha Yajna & Sacred Havan", res: "High Resolution", desc: "Vedic priests performing continuous Rudra Ahuti during Prakat Din.", downloadName: "Prakat-Din-Maha-Yajna.jpg" },
+        { img: sanctumDevotees, title: "Mahapooja & Thousand Devotees Darshan", res: "High Resolution", desc: "Over ten thousand devotees gathered for collective prayer and darshan.", downloadName: "Prakat-Din-Sanctum-Darshan.jpg" },
+        { img: annadan, title: "Maha Prasad Annachhatra Seva", res: "High Resolution", desc: "Sacred Annadan serving hot nutritious prasadam to visiting devotees.", downloadName: "Prakat-Din-Annadan.jpg" },
+        { img: priestsVedicChanting, title: "Learned Vedic Priests Chanting Stotras", res: "High Resolution", desc: "Continuous recitation of Purusha Suktam and Shri Swami Samarth Tarak Mantra.", downloadName: "Vedic-Priests-Chanting.jpg" },
+      ],
+    },
+    {
+      id: "thursday-palkhi",
+      name: "Weekly Thursday Palkhi Sohala",
+      subtitle: "Historic Thursday Procession Tradition",
+      coverImg: palkhiCeremony,
+      photos: [
+        { img: palkhiCeremony, title: "Holy Palanquin (Palkhi) Procession on Khadilkar Road", res: "High Resolution", desc: "Divine palanquin carrying the holy Padukas around the math perimeter amidst chanting.", downloadName: "Thursday-Palkhi-Procession.jpg" },
+        { img: glimpseDevotionLight, title: "Deepotsav & Women Devotees offering Aarti", res: "High Resolution", desc: "Devout women devotees performing traditional Panchaarti and lighting deepaks.", downloadName: "Deepotsav-Aarti.jpg" },
+        { img: prayerHallAarti, title: "Bhajan Sandhya & Naam Jap in Assembly Hall", res: "High Resolution", desc: "Melodious singing of Swami bhajans, abhangas, and akhand jap.", downloadName: "Thursday-Bhajan-Sandhya.jpg" },
+        { img: altarShrineClose, title: "Silver Padukas with Fresh Rose Garlands", res: "High Resolution", desc: "Close-up of the holy Padukas consecrated on 8th October 1898 with fragrant flowers.", downloadName: "Silver-Padukas-Garlands.jpg" },
+      ],
+    },
+    {
+      id: "gurupournima",
+      name: "Gurupournima Mahotsav",
+      subtitle: "Veneration of the Divine Sadguru Lineage",
+      coverImg: sanctumDevotees,
+      photos: [
+        { img: sanctumDevotees, title: "Gurupournima Morning Maha Aarti", res: "High Resolution", desc: "Divine morning Mangalarati celebrating the supreme grace of Sadguru Shree Swami Samarth.", downloadName: "Gurupournima-Maha-Aarti.jpg" },
+        { img: altarLotusHall, title: "Sanctum Lotus Throne Decorated with Lights", res: "High Resolution", desc: "The lotus pedestal illuminated with warm golden lights during the festival.", downloadName: "Lotus-Throne-Decoration.jpg" },
+        { img: priestsVedicChanting, title: "Guru Gita Parayan & Purusha Suktam", res: "High Resolution", desc: "Complete recitation of the sacred Guru Gita by temple priests.", downloadName: "Guru-Gita-Parayan.jpg" },
+        { img: aarti, title: "Deepa Archan & Evening Mangalarati", res: "High Resolution", desc: "Devotees participating in the grand evening aarti ceremony.", downloadName: "Gurupournima-Evening-Aarti.jpg" },
+      ],
+    },
+    {
+      id: "datta-jayanti",
+      name: "Datta Jayanti & Navratri Mahotsav",
+      subtitle: "Celebration of the Trifold Avatar & Divine Mother",
+      coverImg: glimpseSacredDarshan,
+      photos: [
+        { img: glimpseSacredDarshan, title: "Lord Ganesha & Sanctum Deity Special Shringar", res: "High Resolution", desc: "Festive shringar of Sri Vighnaharta Ganesha and sacred sanctum deities.", downloadName: "Lord-Ganesha-Festive-Shringar.jpg" },
+        { img: utsav, title: "Datta Jayanti Cradle Ceremony & Kirtan", res: "High Resolution", desc: "Traditional Janmotsav celebration with devotional kirtan discourse.", downloadName: "Datta-Jayanti-Kirtan.jpg" },
+        { img: templeEntranceDoor, title: "Illuminated Temple Gateway on Festival Night", res: "High Resolution", desc: "The decorated wooden gateway with marigold torans and glowing lamps.", downloadName: "Temple-Gateway-Illumination.jpg" },
+        { img: templeCorridor, title: "Marble Corridor Filled with Devotees in Queue", res: "High Resolution", desc: "Peaceful queue of pilgrims awaiting sanctum darshan during festival days.", downloadName: "Marble-Corridor-Queue.jpg" },
+      ],
+    },
+  ];
+
+  const [selectedAlbumId, setSelectedAlbumId] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const activeAlbum = albums.find((a) => a.id === selectedAlbumId);
+
+  return (
+    <div className="mx-auto max-w-6xl px-4 pb-16">
+      {!activeAlbum ? (
+        /* Level 1: 4 Utsav Cards [Utsav Name (Label)] [One Photo] */
+        <div>
+          <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-border pb-4">
+            <div>
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-maroon">
+                Math Utsav Photo Albums
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                Click any Utsav to open its multi-photo gallery
+              </p>
+            </div>
+            <span className="self-start sm:self-auto rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+              4 Festive Collections
+            </span>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {albums.map((album) => (
+              <div
+                key={album.id}
+                onClick={() => setSelectedAlbumId(album.id)}
+                className="group flex flex-col justify-between overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple transition duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
+              >
+                {/* One Cover Photo */}
+                <div className="relative aspect-[4/3] overflow-hidden bg-secondary/30">
+                  <img
+                    src={album.coverImg}
+                    alt={album.name}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-hero-overlay opacity-0 group-hover:opacity-80 transition flex items-center justify-center text-white">
+                    <span className="flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1.5 text-xs font-bold text-gold">
+                      <Grid className="h-4 w-4" /> View Album
+                    </span>
+                  </div>
+                  <span className="absolute bottom-2 right-2 rounded bg-black/80 px-2 py-0.5 text-[10px] font-bold text-gold">
+                    {album.photos.length} Photos
+                  </span>
+                </div>
+
+                {/* Utsav Name (Label) */}
+                <div className="p-4 flex flex-col flex-1 justify-between">
+                  <div>
+                    <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">
+                      UTSAV ALBUM
+                    </span>
+                    <h4 className="mt-1 font-display text-base font-bold text-maroon group-hover:text-primary transition line-clamp-2">
+                      {album.name}
+                    </h4>
+                    <p className="mt-1 text-xs text-muted-foreground line-clamp-1">
+                      {album.subtitle}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    className="mt-4 inline-flex items-center justify-center gap-1.5 rounded bg-secondary px-3 py-2 text-xs font-semibold text-maroon group-hover:bg-gold group-hover:text-maroon transition w-full"
+                  >
+                    <span>Open Album ({album.photos.length} Photos)</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        /* Level 2: Selected Utsav's Multiple Photos Page */
+        <div>
+          {/* Header with Back Button */}
+          <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-border pb-4">
+            <button
+              type="button"
+              onClick={() => setSelectedAlbumId(null)}
+              className="inline-flex items-center gap-2 rounded-md border border-gold/60 bg-gold/15 px-3.5 py-1.5 text-xs font-bold text-maroon hover:bg-gold transition self-start"
+            >
+              <ChevronLeft className="h-4 w-4" /> Back to All Utsavs
+            </button>
+            <div className="text-left sm:text-right">
+              <h3 className="font-display text-lg sm:text-2xl font-bold text-maroon">
+                {activeAlbum.name}
+              </h3>
+              <p className="text-xs text-muted-foreground">
+                {activeAlbum.photos.length} high-resolution photographs • Click any photo to zoom & download
+              </p>
+            </div>
+          </div>
+
+          {/* Grid of Multiple Photos */}
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {activeAlbum.photos.map((photo, i) => (
+              <div
+                key={i}
+                onClick={() => setLightboxIndex(i)}
+                className="group relative overflow-hidden rounded-md border-4 border-card shadow-temple cursor-pointer"
+              >
+                <img
+                  src={photo.img}
+                  alt={photo.title}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-hero-overlay opacity-0 group-hover:opacity-90 transition flex flex-col justify-between p-3 text-white">
+                  <span className="self-end rounded-full bg-black/60 p-1.5 text-gold">
+                    <ZoomIn className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <span className="font-display text-xs text-gold-foreground font-semibold line-clamp-1">
+                      {photo.title}
+                    </span>
+                    <span className="text-[10px] text-white/80 block mt-0.5">Click to Zoom & Download</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Lightbox Modal for Zoom & Download */}
+          {lightboxIndex !== null && (
+            <ImageLightboxModal
+              items={activeAlbum.photos}
+              currentIndex={lightboxIndex}
+              onClose={() => setLightboxIndex(null)}
+              onNavigate={(newIdx) => setLightboxIndex(newIdx)}
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// -------------------------------------------------------------
+// 2. UtsavVideosGallery: 2-Level Gallery (4 Utsav Cards -> Multi-Videos -> YouTube Pop Up)
+// -------------------------------------------------------------
+interface UtsavVideoAlbum {
+  id: string;
+  name: string;
+  subtitle: string;
+  coverImg: string;
+  coverDuration: string;
+  videos: {
+    title: string;
+    duration: string;
+    youtubeId: string;
+    desc: string;
+    img: string;
+  }[];
+}
+
+function UtsavVideosGallery() {
+  const videoAlbums: UtsavVideoAlbum[] = [
+    {
+      id: "thursday-palkhi",
+      name: "Weekly Thursday Palkhi Sohala",
+      subtitle: "Sacred Palanquin Procession & Aarti",
+      coverImg: palkhiCeremony,
+      coverDuration: "12:45 mins",
+      videos: [
+        {
+          title: "Thursday Palkhi Sohala — Pradakshina on Khadilkar Road",
+          duration: "12:45 mins",
+          youtubeId: "W4i2B6QvO8g",
+          desc: "Grand palanquin procession of Shree Swami Samarth Maharaj around Khadilkar Road with hundreds of singing devotees.",
+          img: palkhiCeremony,
+        },
+        {
+          title: "Palkhi Aarti & Tarak Mantra Chanting",
+          duration: "08:15 mins",
+          youtubeId: "hK_U99qK-Q4",
+          desc: "Sacred night aarti and deepotsav during the Thursday Palkhi Sohala.",
+          img: prayerHallAarti,
+        },
+        {
+          title: "Devotee Experiences & Thursday Bhajan Sandhya",
+          duration: "16:20 mins",
+          youtubeId: "vB0jP8h7WlA",
+          desc: "Devotees share experiences of Swami's divine grace and join the devotional satsang.",
+          img: sanctumDevotees,
+        },
+      ],
+    },
+    {
+      id: "daily-aartis",
+      name: "Daily Live Kakad & Evening Aarti",
+      subtitle: "Vedic Routine from Dawn to Night",
+      coverImg: prayerHallAarti,
+      coverDuration: "24:10 mins",
+      videos: [
+        {
+          title: "Morning Kakad Aarti & Panchamrut Snan",
+          duration: "24:10 mins",
+          youtubeId: "hK_U99qK-Q4",
+          desc: "Sacred dawn awakening prayers, Panchamrut Snan, and Stotra chanting inside the sanctum sanctorum.",
+          img: prayerHallAarti,
+        },
+        {
+          title: "Evening Dhoop Aarti & Deeparadhana",
+          duration: "15:30 mins",
+          youtubeId: "vB0jP8h7WlA",
+          desc: "Sunset Dhoop Aarti with traditional brass deepaks, dhoop fumes, and resonant bells.",
+          img: sanctumDevotees,
+        },
+        {
+          title: "Madhyana Pooja & Peaceful Shej Aarti",
+          duration: "11:45 mins",
+          youtubeId: "W4i2B6QvO8g",
+          desc: "Noon offerings and peaceful nighttime Shej Aarti concluding the temple daily routine.",
+          img: altarShrineClose,
+        },
+      ],
+    },
+    {
+      id: "prakat-din",
+      name: "Prakat Din Maha Yajna & Abhishek",
+      subtitle: "Annual Appearance Day Celebrations",
+      coverImg: havanPooja,
+      coverDuration: "18:30 mins",
+      videos: [
+        {
+          title: "Prakat Din Maha Rudra Havan & Ahuti Ceremony",
+          duration: "18:30 mins",
+          youtubeId: "vB0jP8h7WlA",
+          desc: "Vedic priests performing sacred Ahuti and Rudra Havan during the annual Prakat Din Mahotsav.",
+          img: havanPooja,
+        },
+        {
+          title: "Pushpa Vrushti & Paduka Sahasranamavali",
+          duration: "14:50 mins",
+          youtubeId: "W4i2B6QvO8g",
+          desc: "Showers of fresh flowers on the holy Padukas during the grand celebration.",
+          img: glimpseFestivalDecorations,
+        },
+        {
+          title: "Annachhatra & Devotee Mahaprasad Seva",
+          duration: "09:40 mins",
+          youtubeId: "hK_U99qK-Q4",
+          desc: "Distribution of holy prasad to over ten thousand devotees on Prakat Din.",
+          img: annadan,
+        },
+      ],
+    },
+    {
+      id: "gurupournima",
+      name: "Gurupournima & Bhajan Sandhya",
+      subtitle: "Guru Veneration & Devotional Music",
+      coverImg: sanctumDevotees,
+      coverDuration: "15:20 mins",
+      videos: [
+        {
+          title: "Gurupournima Evening Maha Mangalarati",
+          duration: "15:20 mins",
+          youtubeId: "hK_U99qK-Q4",
+          desc: "Thousands of lit lamps, dhoop deep archan, and collective Tarak Mantra recitation by devotees.",
+          img: sanctumDevotees,
+        },
+        {
+          title: "Guru Gita Parayan & Keertan Seva",
+          duration: "22:15 mins",
+          youtubeId: "vB0jP8h7WlA",
+          desc: "Complete recitation of sacred Guru Gita followed by melodious traditional keertan.",
+          img: priestsVedicChanting,
+        },
+        {
+          title: "Altar Floral Shringar & Darshan Glimpses",
+          duration: "10:05 mins",
+          youtubeId: "W4i2B6QvO8g",
+          desc: "Divine shringar of Shree Swami Samarth Padukas and the lotus altar.",
+          img: altarLotusHall,
+        },
+      ],
+    },
+  ];
+
+  const [selectedAlbumId, setSelectedAlbumId] = useState<string | null>(null);
+  const [activeYoutubeVideo, setActiveYoutubeVideo] = useState<{
+    title: string;
+    youtubeId: string;
+    desc: string;
+  } | null>(null);
+
+  const activeAlbum = videoAlbums.find((a) => a.id === selectedAlbumId);
+
+  return (
+    <div className="mx-auto max-w-6xl px-4 pb-16">
+      {!activeAlbum ? (
+        /* Level 1: 4 Utsav Video Cards [Utsav Name (Label)] [One Video] */
+        <div>
+          <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-border pb-4">
+            <div>
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-maroon">
+                Math Utsav Video Collections
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                Click any Utsav to watch multiple videos in a pop up player
+              </p>
+            </div>
+            <span className="self-start sm:self-auto rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+              4 Video Collections
+            </span>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {videoAlbums.map((album) => (
+              <div
+                key={album.id}
+                onClick={() => setSelectedAlbumId(album.id)}
+                className="group flex flex-col justify-between overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple transition duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
+              >
+                {/* One Cover Video */}
+                <div className="relative aspect-video overflow-hidden bg-black">
+                  <img
+                    src={album.coverImg}
+                    alt={album.name}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition" />
+                  <span className="absolute inset-0 m-auto flex h-12 w-12 items-center justify-center rounded-full bg-gradient-saffron text-xl text-primary-foreground shadow-temple transition group-hover:scale-110">
+                    <Play className="h-5 w-5 fill-current ml-0.5" />
+                  </span>
+                  <span className="absolute bottom-2 right-2 rounded bg-black/80 px-2 py-0.5 text-[10px] font-semibold text-gold">
+                    {album.coverDuration}
+                  </span>
+                </div>
+
+                {/* Utsav Name (Label) */}
+                <div className="p-4 flex flex-col flex-1 justify-between">
+                  <div>
+                    <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">
+                      UTSAV VIDEOS
+                    </span>
+                    <h4 className="mt-1 font-display text-base font-bold text-maroon group-hover:text-primary transition line-clamp-2">
+                      {album.name}
+                    </h4>
+                    <p className="mt-1 text-xs text-muted-foreground line-clamp-1">
+                      {album.subtitle}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    className="mt-4 inline-flex items-center justify-center gap-1.5 rounded bg-secondary px-3 py-2 text-xs font-semibold text-maroon group-hover:bg-gold group-hover:text-maroon transition w-full"
+                  >
+                    <Play className="h-3 w-3 fill-current" />
+                    <span>View Videos ({album.videos.length})</span>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        /* Level 2: Selected Utsav's Multiple Videos Page */
+        <div>
+          {/* Header with Back Button */}
+          <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-border pb-4">
+            <button
+              type="button"
+              onClick={() => setSelectedAlbumId(null)}
+              className="inline-flex items-center gap-2 rounded-md border border-gold/60 bg-gold/15 px-3.5 py-1.5 text-xs font-bold text-maroon hover:bg-gold transition self-start"
+            >
+              <ChevronLeft className="h-4 w-4" /> Back to All Utsav Videos
+            </button>
+            <div className="text-left sm:text-right">
+              <h3 className="font-display text-lg sm:text-2xl font-bold text-maroon">
+                {activeAlbum.name}
+              </h3>
+              <p className="text-xs text-muted-foreground">
+                {activeAlbum.videos.length} videos available • Click any video to play in pop up
+              </p>
+            </div>
+          </div>
+
+          {/* Grid of Multiple Videos */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {activeAlbum.videos.map((v, i) => (
+              <div
+                key={i}
+                className="group flex flex-col justify-between overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple"
+              >
+                <div
+                  onClick={() => setActiveYoutubeVideo({ title: v.title, youtubeId: v.youtubeId, desc: v.desc })}
+                  className="relative aspect-video overflow-hidden bg-black cursor-pointer"
+                >
+                  <img
+                    src={v.img}
+                    alt={v.title}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition" />
+                  <span className="absolute inset-0 m-auto flex h-12 w-12 items-center justify-center rounded-full bg-gradient-saffron text-xl text-primary-foreground shadow-temple transition group-hover:scale-110">
+                    <Play className="h-5 w-5 fill-current ml-0.5" />
+                  </span>
+                  <span className="absolute bottom-2 right-2 rounded bg-black/80 px-2 py-0.5 text-[10px] font-semibold text-gold">
+                    {v.duration}
+                  </span>
+                </div>
+                <div className="p-4 flex flex-col flex-1 justify-between">
+                  <div>
+                    <h4 className="font-display text-sm font-bold text-maroon line-clamp-2">
+                      {v.title}
+                    </h4>
+                    <p className="mt-1.5 text-xs text-foreground/80 leading-relaxed line-clamp-2">
+                      {v.desc}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setActiveYoutubeVideo({ title: v.title, youtubeId: v.youtubeId, desc: v.desc })}
+                    className="mt-3 inline-flex items-center justify-center gap-1.5 rounded bg-secondary px-3 py-2 text-xs font-semibold text-maroon hover:bg-gold transition w-full"
+                  >
+                    <Play className="h-3 w-3 fill-current" /> Watch in Pop Up
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* YouTube Pop Up Modal */}
+          {activeYoutubeVideo && (
+            <YouTubeModal
+              video={activeYoutubeVideo}
+              onClose={() => setActiveYoutubeVideo(null)}
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// -------------------------------------------------------------
+// 3. WallpapersGallery: All thumbnails open in pop up with zoom & download
+// -------------------------------------------------------------
 function WallpapersGallery() {
   const wallpapers: GalleryImageItem[] = [
     {
@@ -1263,24 +1910,28 @@ function WallpapersGallery() {
       title: "Shree Swami Samarth — Celestial Form",
       res: "3840 x 2160 (4K Ultra HD)",
       downloadName: "Shree-Swami-Samarth-Celestial-4K.png",
+      desc: "Divine portrait of Akkalkot Niwasi Shree Swami Samarth Maharaj with auspicious blessing mudra.",
     },
     {
       img: swamiPortraitCutout,
       title: "Shree Swami Samarth — Holy Paduka Portrait",
       res: "2560 x 1440 (2K QHD)",
       downloadName: "Shree-Swami-Samarth-Portrait-2K.png",
+      desc: "Sacred icon of Shree Swami Samarth seated with Bolster and holy Padukas.",
     },
     {
       img: altarShrineClose,
       title: "Silver Paduka Altar with Samai & Naivedya",
       res: "1920 x 1080 (Full HD)",
       downloadName: "Silver-Paduka-Altar-FullHD.jpg",
+      desc: "Consecrated silver Padukas adorned with fresh flowers and brass samai lamps.",
     },
     {
       img: altarLotusHall,
       title: "Sanctum Lotus Base & Shree Swami Samarth",
       res: "1920 x 1080 (Full HD)",
       downloadName: "Sanctum-Lotus-Base-FullHD.jpg",
+      desc: "The inner sanctum showing the divine lotus throne and silver altar arches.",
     },
   ];
 
@@ -1289,12 +1940,15 @@ function WallpapersGallery() {
   return (
     <div className="mx-auto max-w-6xl px-4 pb-12">
       <div className="mb-4 text-xs text-muted-foreground flex items-center justify-between">
-        <span>Click any wallpaper to zoom and preview in high resolution</span>
+        <span>Click any wallpaper thumbnail or button to open pop up preview with zoom</span>
         <span className="text-primary font-medium">4 Divine Wallpapers Available</span>
       </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {wallpapers.map((w, i) => (
-          <div key={i} className="group overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple flex flex-col justify-between">
+          <div
+            key={i}
+            className="group overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple flex flex-col justify-between"
+          >
             {/* Clickable Image Box with Zoom Trigger */}
             <div
               onClick={() => setModalIndex(i)}
@@ -1310,25 +1964,19 @@ function WallpapersGallery() {
                 <span>Click to Zoom</span>
               </div>
             </div>
-            <div className="p-4 border-t">
-              <h4 className="font-display text-sm font-semibold text-maroon line-clamp-1">{w.title}</h4>
-              <p className="mt-1 text-xs text-muted-foreground">{w.res}</p>
-              <div className="mt-3 grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  onClick={() => setModalIndex(i)}
-                  className="inline-flex items-center justify-center gap-1 rounded border border-gold/60 bg-gold/10 px-2 py-2 text-xs font-semibold text-maroon hover:bg-gold transition"
-                >
-                  <ZoomIn className="h-3.5 w-3.5" /> Zoom
-                </button>
-                <a
-                  href={w.img}
-                  download={w.downloadName}
-                  className="inline-flex items-center justify-center gap-1 rounded bg-secondary px-2 py-2 text-xs font-semibold text-maroon hover:bg-gold transition"
-                >
-                  <Download className="h-3.5 w-3.5" /> Download
-                </a>
+            <div className="p-4 border-t flex flex-col flex-1 justify-between">
+              <div>
+                <h4 className="font-display text-sm font-semibold text-maroon line-clamp-1">{w.title}</h4>
+                <p className="mt-1 text-xs text-muted-foreground">{w.res}</p>
               </div>
+              <button
+                type="button"
+                onClick={() => setModalIndex(i)}
+                className="mt-3 w-full inline-flex items-center justify-center gap-1.5 rounded bg-secondary px-3 py-2 text-xs font-semibold text-maroon hover:bg-gold transition"
+              >
+                <Download className="h-3.5 w-3.5" />
+                <span>Download Wallpaper</span>
+              </button>
             </div>
           </div>
         ))}
@@ -1346,6 +1994,9 @@ function WallpapersGallery() {
   );
 }
 
+// -------------------------------------------------------------
+// 4. DeitiesGallery: Displays sanctum shrines + Coming Soon… notice
+// -------------------------------------------------------------
 function DeitiesGallery() {
   const deities: GalleryImageItem[] = [
     {
@@ -1381,11 +2032,25 @@ function DeitiesGallery() {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-12">
-      <div className="mb-4 text-xs text-muted-foreground flex items-center justify-between">
-        <span>Click any shrine image to zoom in high resolution</span>
-        <span className="text-primary font-medium">Consecrated Shrines</span>
+    <div className="mx-auto max-w-6xl px-4 pb-12 space-y-8">
+      {/* Coming Soon Notice */}
+      <div className="rounded-md border-l-4 border-gold bg-amber-50/70 p-4 sm:p-5 shadow-sm text-maroon flex items-center gap-3">
+        <Sparkles className="h-6 w-6 text-gold shrink-0 animate-pulse" />
+        <div>
+          <h4 className="font-display text-sm sm:text-base font-bold">
+            Expanded Shrine Photo Archives — Coming Soon…
+          </h4>
+          <p className="text-xs sm:text-sm text-foreground/80 mt-0.5">
+            Comprehensive high-resolution photo archives of all consecrated Parivar Devatas, holy Padukas, and historic temple shrines are being photographed and will be published here shortly.
+          </p>
+        </div>
       </div>
+
+      <div className="flex items-center justify-between text-xs text-muted-foreground">
+        <span>Click any shrine image to zoom in high resolution</span>
+        <span className="text-primary font-medium">Currently Available Shrines</span>
+      </div>
+
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {deities.map((d, i) => (
           <div key={i} className="group overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple flex flex-col justify-between">
@@ -1432,63 +2097,6 @@ function DeitiesGallery() {
       {modalIndex !== null && (
         <ImageLightboxModal
           items={deities}
-          currentIndex={modalIndex}
-          onClose={() => setModalIndex(null)}
-          onNavigate={(newIdx) => setModalIndex(newIdx)}
-        />
-      )}
-    </div>
-  );
-}
-
-function PhotosGallery() {
-  const galleryItems: GalleryImageItem[] = [
-    { img: palkhiCeremony, title: "Thursday Palkhi Sohala", res: "High Resolution", downloadName: "Thursday-Palkhi-Sohala.jpg" },
-    { img: sanctumDevotees, title: "Sanctum Darshan & Aarti", res: "High Resolution", downloadName: "Sanctum-Darshan-Aarti.jpg" },
-    { img: prayerHallAarti, title: "Devotees in Prayer Hall", res: "High Resolution", downloadName: "Prayer-Hall-Aarti.jpg" },
-    { img: havanPooja, title: "Sacred Havan & Yajna Ceremony", res: "High Resolution", downloadName: "Havan-Yajna-Ceremony.jpg" },
-    { img: altarShrineClose, title: "Silver Padukas & Samai", res: "High Resolution", downloadName: "Silver-Padukas-Samai.jpg" },
-    { img: templeEntranceDoor, title: "Decorated Temple Doorway", res: "High Resolution", downloadName: "Temple-Doorway.jpg" },
-    { img: templeCorridor, title: "Marble Corridor & Shrines", res: "High Resolution", downloadName: "Temple-Corridor.jpg" },
-    { img: templeExteriorFacade, title: "Historic Khadilkar Road Facade", res: "High Resolution", downloadName: "Temple-Exterior-Facade.jpg" },
-  ];
-
-  const [modalIndex, setModalIndex] = useState<number | null>(null);
-
-  return (
-    <div className="mx-auto max-w-6xl px-4 pb-12">
-      <div className="mb-4 text-xs text-muted-foreground flex items-center justify-between">
-        <span>Click any photo to zoom in full resolution</span>
-        <span className="text-primary font-medium">{galleryItems.length} Photos</span>
-      </div>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-        {galleryItems.map((g, i) => (
-          <div
-            key={i}
-            onClick={() => setModalIndex(i)}
-            className="group relative overflow-hidden rounded-md border-4 border-card shadow-temple cursor-pointer"
-          >
-            <img
-              src={g.img}
-              alt={g.title}
-              loading="lazy"
-              width={600}
-              height={400}
-              className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-hero-overlay opacity-0 group-hover:opacity-90 transition flex flex-col justify-between p-3 text-white">
-              <span className="self-end rounded-full bg-black/60 p-1.5 text-gold">
-                <ZoomIn className="h-4 w-4" />
-              </span>
-              <span className="font-display text-xs text-gold-foreground font-semibold">{g.title}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {modalIndex !== null && (
-        <ImageLightboxModal
-          items={galleryItems}
           currentIndex={modalIndex}
           onClose={() => setModalIndex(null)}
           onNavigate={(newIdx) => setModalIndex(newIdx)}

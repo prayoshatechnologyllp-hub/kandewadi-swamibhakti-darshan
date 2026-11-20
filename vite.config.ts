@@ -17,10 +17,26 @@ export default defineConfig({
   },
   vite: {
     preview: {
-      allowedHosts: true,
+      allowedHosts: [
+        "swamimathgirgaon-frontend-swamimathgirga-818ed0-200-234-42-132.sslip.io",
+        "test.swamimathgirgaon.com",
+        "swamimathgirgaon.com",
+        ".sslip.io",
+        ".swamimathgirgaon.com",
+        "localhost",
+        "127.0.0.1",
+      ],
     },
     server: {
-      allowedHosts: true,
+      allowedHosts: [
+        "swamimathgirgaon-frontend-swamimathgirga-818ed0-200-234-42-132.sslip.io",
+        "test.swamimathgirgaon.com",
+        "swamimathgirgaon.com",
+        ".sslip.io",
+        ".swamimathgirgaon.com",
+        "localhost",
+        "127.0.0.1",
+      ],
     },
   },
 });
