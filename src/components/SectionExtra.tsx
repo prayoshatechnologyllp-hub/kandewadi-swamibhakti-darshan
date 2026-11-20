@@ -32,8 +32,11 @@ import {
   Lock,
   User,
   Phone,
+  ZoomIn,
+  ZoomOut,
+  X,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 
 const annualFestivals = [
@@ -1071,86 +1074,426 @@ export function SectionExtra({ section, slug }: { section: string; slug: string 
     }
 
     if (slug === "swami-wallpapers") {
-      const wallpapers = [
-        { img: swamiPortraitCloud, title: "Shree Swami Samarth — Celestial Form", res: "3840 x 2160 (4K Ultra HD)" },
-        { img: swamiPortraitCutout, title: "Shree Swami Samarth — Holy Paduka Portrait", res: "2560 x 1440 (2K QHD)" },
-        { img: altarShrineClose, title: "Silver Paduka Altar with Samai & Naivedya", res: "1920 x 1080 (Full HD)" },
-        { img: altarLotusHall, title: "Sanctum Lotus Base & Shree Swami Samarth", res: "1920 x 1080 (Full HD)" },
-      ];
-      return (
-        <div className="mx-auto max-w-6xl px-4 pb-12">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {wallpapers.map((w, i) => (
-              <div key={i} className="group overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple flex flex-col justify-between">
-                <div className="relative aspect-[4/3] overflow-hidden bg-secondary/30 flex items-center justify-center p-2">
-                  <img src={w.img} alt={w.title} className="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-105" />
-                </div>
-                <div className="p-4 border-t">
-                  <h4 className="font-display text-sm font-semibold text-maroon line-clamp-1">{w.title}</h4>
-                  <p className="mt-1 text-xs text-muted-foreground">{w.res}</p>
-                  <a
-                    href={w.img}
-                    download
-                    className="mt-3 inline-flex w-full items-center justify-center gap-1.5 rounded bg-secondary px-3 py-2 text-xs font-semibold text-maroon hover:bg-gold hover:text-maroon transition"
-                  >
-                    <Download className="h-3.5 w-3.5" /> Download Wallpaper
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      );
+      return <WallpapersGallery />;
     }
 
     if (slug === "other-deities") {
-      const deities = [
-        { img: glimpseSacredDarshan, title: "Lord Ganesha (Vighnaharta)", desc: "Consecrated Ganesha receiving first daily worship and naivedya before all temple aartis." },
-        { img: altarLotusHall, title: "Lord Dattatreya & Shree Swami Samarth", desc: "The holy Guru lineage enshrined with the divine trifold avatar of Brahma, Vishnu, and Shiva." },
-        { img: templeEntranceDoor, title: "Sanctum Entrance Doorway", desc: "Carved temple doorway adorned with marigold toran and glowing Om emblem." },
-        { img: templeCorridor, title: "Marble Corridor Shrines", desc: "Passageways lined with historic photographs and niches for prayer and meditation." },
-      ];
-      return (
-        <div className="mx-auto max-w-6xl px-4 pb-12">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {deities.map((d, i) => (
-              <div key={i} className="group overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple">
-                <img src={d.img} alt={d.title} className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105" />
-                <div className="p-4">
-                  <h4 className="font-display text-lg text-maroon">{d.title}</h4>
-                  <p className="mt-1 text-xs leading-relaxed text-foreground/80">{d.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      );
+      return <DeitiesGallery />;
     }
 
-    // Default gallery / utsav photos
-    const galleryItems = [
-      { img: palkhiCeremony, title: "Thursday Palkhi Sohala" },
-      { img: sanctumDevotees, title: "Sanctum Darshan & Aarti" },
-      { img: prayerHallAarti, title: "Devotees in Prayer Hall" },
-      { img: havanPooja, title: "Sacred Havan & Yajna Ceremony" },
-      { img: altarShrineClose, title: "Silver Padukas & Samai" },
-      { img: templeEntranceDoor, title: "Decorated Temple Doorway" },
-      { img: templeCorridor, title: "Marble Corridor & Shrines" },
-      { img: templeExteriorFacade, title: "Historic Khadilkar Road Facade" },
-    ];
-    return (
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 pb-12 md:grid-cols-4">
+    return <PhotosGallery />;
+  }
+
+  return null;
+}
+
+interface GalleryImageItem {
+  img: string;
+  title: string;
+  res?: string;
+  desc?: string;
+  downloadName?: string;
+}
+
+function ImageLightboxModal({
+  items,
+  currentIndex,
+  onClose,
+  onNavigate,
+}: {
+  items: GalleryImageItem[];
+  currentIndex: number;
+  onClose: () => void;
+  onNavigate: (newIndex: number) => void;
+}) {
+  const [zoomLevel, setZoomLevel] = useState<1 | 1.5 | 2>(1);
+  const current = items[currentIndex];
+
+  useEffect(() => {
+    setZoomLevel(1);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft" && currentIndex > 0) onNavigate(currentIndex - 1);
+      if (e.key === "ArrowRight" && currentIndex < items.length - 1) onNavigate(currentIndex + 1);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentIndex, items.length, onClose, onNavigate]);
+
+  if (!current) return null;
+
+  const toggleZoom = () => {
+    setZoomLevel((prev) => (prev === 1 ? 1.5 : prev === 1.5 ? 2 : 1));
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-[120] flex flex-col justify-between bg-black/95 p-3 sm:p-6 backdrop-blur-md select-none animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      {/* Top Header Bar */}
+      <div
+        className="flex items-center justify-between border-b border-white/10 pb-3 text-white"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="max-w-[65%]">
+          <h3 className="font-display text-sm font-bold text-gold sm:text-lg truncate">
+            {current.title}
+          </h3>
+          <div className="flex flex-wrap items-center gap-2 text-xs text-white/70">
+            {current.res && <span className="rounded bg-white/15 px-2 py-0.5 text-cream">{current.res}</span>}
+            <span>Photo {currentIndex + 1} of {items.length}</span>
+            <span className="hidden md:inline text-gold">• Click image or Zoom button to magnify</span>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          {/* Zoom toggle button */}
+          <button
+            type="button"
+            onClick={toggleZoom}
+            className="flex items-center gap-1.5 rounded-md border border-gold/50 bg-white/10 px-3 py-1.5 text-xs font-semibold text-gold hover:bg-gold hover:text-maroon transition"
+            title="Toggle zoom level"
+          >
+            {zoomLevel > 1 ? <ZoomOut className="h-4 w-4" /> : <ZoomIn className="h-4 w-4" />}
+            <span className="hidden sm:inline">{zoomLevel === 1 ? "Zoom In" : `${zoomLevel * 100}%`}</span>
+          </button>
+
+          {/* Download button */}
+          <a
+            href={current.img}
+            download={current.downloadName || `${current.title.toLowerCase().replace(/[^a-z0-9]/g, "-")}.png`}
+            className="flex items-center gap-1.5 rounded-md bg-gradient-saffron px-3.5 py-1.5 text-xs font-bold text-primary-foreground shadow-temple hover:brightness-110 transition"
+            title="Download full size image"
+          >
+            <Download className="h-4 w-4" />
+            <span className="hidden sm:inline">Download Full Size</span>
+            <span className="sm:hidden">Download</span>
+          </a>
+
+          {/* Close button */}
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-full bg-white/15 p-2 text-white/80 hover:bg-white/30 hover:text-white transition"
+            title="Close (Esc)"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+      </div>
+
+      {/* Center Image Viewport */}
+      <div
+        className="relative flex flex-1 items-center justify-center overflow-auto py-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Prev Arrow */}
+        {currentIndex > 0 && (
+          <button
+            type="button"
+            onClick={() => onNavigate(currentIndex - 1)}
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-black/70 p-3 text-white/90 hover:bg-gold hover:text-maroon transition shadow-xl"
+            title="Previous image"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+        )}
+
+        {/* The Zoomable Image */}
+        <div
+          className={`overflow-auto max-h-[72vh] max-w-full flex items-center justify-center p-2 transition-transform duration-300 ${
+            zoomLevel === 1 ? "cursor-zoom-in" : "cursor-zoom-out"
+          }`}
+          onClick={toggleZoom}
+        >
+          <img
+            src={current.img}
+            alt={current.title}
+            style={{
+              transform: `scale(${zoomLevel})`,
+              transformOrigin: "center center",
+              transition: "transform 0.25s ease-out",
+            }}
+            className="max-h-[68vh] w-auto max-w-full object-contain rounded shadow-2xl"
+          />
+        </div>
+
+        {/* Next Arrow */}
+        {currentIndex < items.length - 1 && (
+          <button
+            type="button"
+            onClick={() => onNavigate(currentIndex + 1)}
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-black/70 p-3 text-white/90 hover:bg-gold hover:text-maroon transition shadow-xl"
+            title="Next image"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        )}
+      </div>
+
+      {/* Bottom Caption & Download Bar */}
+      <div
+        className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 pt-3 text-white/80 text-xs"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="text-center sm:text-left">
+          {current.desc && <p className="text-white/90 text-sm max-w-2xl">{current.desc}</p>}
+          <p className="text-white/50 text-[11px] mt-0.5">
+            Click image to toggle zoom ({zoomLevel * 100}%) • Use ‹ › keys to browse • Click Download for full original resolution
+          </p>
+        </div>
+
+        <a
+          href={current.img}
+          download={current.downloadName || `${current.title.toLowerCase().replace(/[^a-z0-9]/g, "-")}.png`}
+          className="inline-flex items-center gap-1.5 rounded border border-gold/60 bg-gold/20 px-4 py-2 font-bold text-gold hover:bg-gold hover:text-maroon transition"
+        >
+          <Download className="h-4 w-4" /> Download Original (Zoom Size)
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function WallpapersGallery() {
+  const wallpapers: GalleryImageItem[] = [
+    {
+      img: swamiPortraitCloud,
+      title: "Shree Swami Samarth — Celestial Form",
+      res: "3840 x 2160 (4K Ultra HD)",
+      downloadName: "Shree-Swami-Samarth-Celestial-4K.png",
+    },
+    {
+      img: swamiPortraitCutout,
+      title: "Shree Swami Samarth — Holy Paduka Portrait",
+      res: "2560 x 1440 (2K QHD)",
+      downloadName: "Shree-Swami-Samarth-Portrait-2K.png",
+    },
+    {
+      img: altarShrineClose,
+      title: "Silver Paduka Altar with Samai & Naivedya",
+      res: "1920 x 1080 (Full HD)",
+      downloadName: "Silver-Paduka-Altar-FullHD.jpg",
+    },
+    {
+      img: altarLotusHall,
+      title: "Sanctum Lotus Base & Shree Swami Samarth",
+      res: "1920 x 1080 (Full HD)",
+      downloadName: "Sanctum-Lotus-Base-FullHD.jpg",
+    },
+  ];
+
+  const [modalIndex, setModalIndex] = useState<number | null>(null);
+
+  return (
+    <div className="mx-auto max-w-6xl px-4 pb-12">
+      <div className="mb-4 text-xs text-muted-foreground flex items-center justify-between">
+        <span>Click any wallpaper to zoom and preview in high resolution</span>
+        <span className="text-primary font-medium">4 Divine Wallpapers Available</span>
+      </div>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {wallpapers.map((w, i) => (
+          <div key={i} className="group overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple flex flex-col justify-between">
+            {/* Clickable Image Box with Zoom Trigger */}
+            <div
+              onClick={() => setModalIndex(i)}
+              className="relative aspect-[4/3] overflow-hidden bg-secondary/30 flex items-center justify-center p-2 cursor-pointer"
+            >
+              <img
+                src={w.img}
+                alt={w.title}
+                className="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-1.5 text-white font-semibold text-xs">
+                <ZoomIn className="h-4 w-4 text-gold" />
+                <span>Click to Zoom</span>
+              </div>
+            </div>
+            <div className="p-4 border-t">
+              <h4 className="font-display text-sm font-semibold text-maroon line-clamp-1">{w.title}</h4>
+              <p className="mt-1 text-xs text-muted-foreground">{w.res}</p>
+              <div className="mt-3 grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setModalIndex(i)}
+                  className="inline-flex items-center justify-center gap-1 rounded border border-gold/60 bg-gold/10 px-2 py-2 text-xs font-semibold text-maroon hover:bg-gold transition"
+                >
+                  <ZoomIn className="h-3.5 w-3.5" /> Zoom
+                </button>
+                <a
+                  href={w.img}
+                  download={w.downloadName}
+                  className="inline-flex items-center justify-center gap-1 rounded bg-secondary px-2 py-2 text-xs font-semibold text-maroon hover:bg-gold transition"
+                >
+                  <Download className="h-3.5 w-3.5" /> Download
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {modalIndex !== null && (
+        <ImageLightboxModal
+          items={wallpapers}
+          currentIndex={modalIndex}
+          onClose={() => setModalIndex(null)}
+          onNavigate={(newIdx) => setModalIndex(newIdx)}
+        />
+      )}
+    </div>
+  );
+}
+
+function DeitiesGallery() {
+  const deities: GalleryImageItem[] = [
+    {
+      img: glimpseSacredDarshan,
+      title: "Lord Ganesha (Vighnaharta)",
+      desc: "Consecrated Ganesha receiving first daily worship and naivedya before all temple aartis.",
+      res: "High Resolution",
+      downloadName: "Lord-Ganesha-Kandewadi-Math.jpg",
+    },
+    {
+      img: altarLotusHall,
+      title: "Lord Dattatreya & Shree Swami Samarth",
+      desc: "The holy Guru lineage enshrined with the divine trifold avatar of Brahma, Vishnu, and Shiva.",
+      res: "High Resolution",
+      downloadName: "Lord-Dattatreya-Swami-Samarth.jpg",
+    },
+    {
+      img: templeEntranceDoor,
+      title: "Sanctum Entrance Doorway",
+      desc: "Carved temple doorway adorned with marigold toran and glowing Om emblem.",
+      res: "High Resolution",
+      downloadName: "Temple-Entrance-Doorway.jpg",
+    },
+    {
+      img: templeCorridor,
+      title: "Marble Corridor Shrines",
+      desc: "Passageways lined with historic photographs and niches for prayer and meditation.",
+      res: "High Resolution",
+      downloadName: "Marble-Corridor-Shrines.jpg",
+    },
+  ];
+
+  const [modalIndex, setModalIndex] = useState<number | null>(null);
+
+  return (
+    <div className="mx-auto max-w-6xl px-4 pb-12">
+      <div className="mb-4 text-xs text-muted-foreground flex items-center justify-between">
+        <span>Click any shrine image to zoom in high resolution</span>
+        <span className="text-primary font-medium">Consecrated Shrines</span>
+      </div>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {deities.map((d, i) => (
+          <div key={i} className="group overflow-hidden rounded-md border-t-4 border-gold bg-card shadow-temple flex flex-col justify-between">
+            <div
+              onClick={() => setModalIndex(i)}
+              className="relative aspect-[4/3] overflow-hidden cursor-pointer"
+            >
+              <img
+                src={d.img}
+                alt={d.title}
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-1.5 text-white font-semibold text-xs">
+                <ZoomIn className="h-4 w-4 text-gold" />
+                <span>Click to Zoom</span>
+              </div>
+            </div>
+            <div className="p-4 border-t flex flex-col flex-1 justify-between">
+              <div>
+                <h4 className="font-display text-base font-bold text-maroon">{d.title}</h4>
+                <p className="mt-1 text-xs leading-relaxed text-foreground/80">{d.desc}</p>
+              </div>
+              <div className="mt-4 grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setModalIndex(i)}
+                  className="inline-flex items-center justify-center gap-1 rounded border border-gold/60 bg-gold/10 px-2 py-1.5 text-xs font-semibold text-maroon hover:bg-gold transition"
+                >
+                  <ZoomIn className="h-3.5 w-3.5" /> Zoom
+                </button>
+                <a
+                  href={d.img}
+                  download={d.downloadName}
+                  className="inline-flex items-center justify-center gap-1 rounded bg-secondary px-2 py-1.5 text-xs font-semibold text-maroon hover:bg-gold transition"
+                >
+                  <Download className="h-3.5 w-3.5" /> Download
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {modalIndex !== null && (
+        <ImageLightboxModal
+          items={deities}
+          currentIndex={modalIndex}
+          onClose={() => setModalIndex(null)}
+          onNavigate={(newIdx) => setModalIndex(newIdx)}
+        />
+      )}
+    </div>
+  );
+}
+
+function PhotosGallery() {
+  const galleryItems: GalleryImageItem[] = [
+    { img: palkhiCeremony, title: "Thursday Palkhi Sohala", res: "High Resolution", downloadName: "Thursday-Palkhi-Sohala.jpg" },
+    { img: sanctumDevotees, title: "Sanctum Darshan & Aarti", res: "High Resolution", downloadName: "Sanctum-Darshan-Aarti.jpg" },
+    { img: prayerHallAarti, title: "Devotees in Prayer Hall", res: "High Resolution", downloadName: "Prayer-Hall-Aarti.jpg" },
+    { img: havanPooja, title: "Sacred Havan & Yajna Ceremony", res: "High Resolution", downloadName: "Havan-Yajna-Ceremony.jpg" },
+    { img: altarShrineClose, title: "Silver Padukas & Samai", res: "High Resolution", downloadName: "Silver-Padukas-Samai.jpg" },
+    { img: templeEntranceDoor, title: "Decorated Temple Doorway", res: "High Resolution", downloadName: "Temple-Doorway.jpg" },
+    { img: templeCorridor, title: "Marble Corridor & Shrines", res: "High Resolution", downloadName: "Temple-Corridor.jpg" },
+    { img: templeExteriorFacade, title: "Historic Khadilkar Road Facade", res: "High Resolution", downloadName: "Temple-Exterior-Facade.jpg" },
+  ];
+
+  const [modalIndex, setModalIndex] = useState<number | null>(null);
+
+  return (
+    <div className="mx-auto max-w-6xl px-4 pb-12">
+      <div className="mb-4 text-xs text-muted-foreground flex items-center justify-between">
+        <span>Click any photo to zoom in full resolution</span>
+        <span className="text-primary font-medium">{galleryItems.length} Photos</span>
+      </div>
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {galleryItems.map((g, i) => (
-          <div key={i} className="group relative overflow-hidden rounded-md border-4 border-card shadow-temple">
-            <img src={g.img} alt={g.title} loading="lazy" width={600} height={400} className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-110" />
-            <div className="absolute inset-0 bg-hero-overlay opacity-0 group-hover:opacity-85 transition flex items-end p-3">
+          <div
+            key={i}
+            onClick={() => setModalIndex(i)}
+            className="group relative overflow-hidden rounded-md border-4 border-card shadow-temple cursor-pointer"
+          >
+            <img
+              src={g.img}
+              alt={g.title}
+              loading="lazy"
+              width={600}
+              height={400}
+              className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-hero-overlay opacity-0 group-hover:opacity-90 transition flex flex-col justify-between p-3 text-white">
+              <span className="self-end rounded-full bg-black/60 p-1.5 text-gold">
+                <ZoomIn className="h-4 w-4" />
+              </span>
               <span className="font-display text-xs text-gold-foreground font-semibold">{g.title}</span>
             </div>
           </div>
         ))}
       </div>
-    );
-  }
 
-  return null;
+      {modalIndex !== null && (
+        <ImageLightboxModal
+          items={galleryItems}
+          currentIndex={modalIndex}
+          onClose={() => setModalIndex(null)}
+          onNavigate={(newIdx) => setModalIndex(newIdx)}
+        />
+      )}
+    </div>
+  );
 }
