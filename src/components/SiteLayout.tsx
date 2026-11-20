@@ -80,7 +80,6 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <li><Link to="/edarshan">eDarshan (Live Aarti)</Link></li>
               <li><Link to="/seva/donation">Online Seva & Donation</Link></li>
               <li><Link to="/utsav/calendar">Utsav Calendar</Link></li>
-              <li><Link to="/structure" className="text-gold font-semibold">Approved Link Structure</Link></li>
             </ul>
           </div>
           <div>
